@@ -1,6 +1,160 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dheeraj Mohandas Pai's Resume</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-  <a href='/slides.pdf'>Jagruthi Slides</a>
-  <a href='/paper.pdf'>Jagruthi Doc</a>
-</body>	
+
+  <!-- Profile -->
+  <header>
+    <h1>Dheeraj Mohandas Pai</h1>
+    <p>Email: <a href="mailto:dheerajpai@cmu.edu">dheerajpai@cmu.edu</a> | Phone: </p>
+    <p>Address: Carnegie Mellon University, 5000 Forbes Avenue, Pittsburgh</p>
+    <p>Website: <a href="https://dheerajmpai.github.io">dheerajmpai.github.io</a></p>
+  </header>
+
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+    <ul>
+      <li>
+        <strong>Carnegie Mellon University</strong> (Aug 2022 - Dec 2023)<br>
+        Masters, Artificial Intelligence | Pittsburgh, PA
+      </li>
+      <li>
+        <strong>Indian Institute of Technology Madras</strong> (Aug 2019)<br>
+        Bachelors, Electrical and Computer Engineering | Chennai, India
+      </li>
+    </ul>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <!-- Qualcomm Inc. -->
+    <div class="job">
+      <h3>Qualcomm Inc. | Software Engineering Intern</h3>
+      <p>San Diego, California | May - Aug 2023</p>
+      <ul>
+        <li>Designed a from scratch a caching strategy for Vector databases (based on FAISS) for efficient mobile and edge deployment of Large language models. <strong>(awarded as best edge solution for LLMs)</strong></li>
+        <li>Designed and deployed MLOps pipeline for a power-efficient location-tracking edge device.</li>
+        <li>Winner for best edge solution in company-wide Global ML hackathon (400+ participants)</li>
+      </ul>
+    </div>
+    <!-- Teaching assistant -->
+    <div class="job">
+      <h3>Teaching assistant | Introduction to deep learning, CMU</h3>
+      <p>Pittsburgh, PA | May 2023 – Present</p>
+      <ul>
+        <li>Provided individualized mentorship, conducted recitation for a class of over 400 students.</li>
+        <li>Updated homework assignments to include an auto-differentiation library, enhancing the technical depth.</li>
+        <li>Helped students from varied backgrounds develop an auto-differentiation library from scratch.</li>
+      </ul>
+    </div>
+    <!-- Optym Inc. -->
+    <div class="job">
+      <h3>Optym Inc. | Senior Software Engineer</h3>
+      <p>Bengaluru, India | Aug 2021 – Aug 2022</p>
+      <ul>
+        <li>Developed backend infrastructure for EV route optimization platform. Deployed the DevOps pipeline</li>
+        <li>Reduced the run time of routing algorithm from 15 hours to 12 mins using efficient data structures.</li>
+      </ul>
+    </div>
+    <!-- Hyperweb AI -->
+    <div class="job">
+      <h3>Hyperweb AI | Co-Founder and CTO</h3>
+      <p>Bengaluru, India | Oct 2019 – Aug 2021</p>
+      <ul>
+        <li>Trained and an auto-encoder+GAN model to create a state of art text-to-video SaaS service.</li>
+        <li>Implemented and trained multiple SOTA research publications for text-to-video models.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Large language models: LLama-2(+finetuning), GPT-4, Huggingface, Langchain, AutoGPT, FAISS</li>
+      <li>AI/ML: Pytorch, Tensorflow, Huggingface</li>
+      <li>Systems for ML: Pytorch distributed, Fairscale</li>
+      <li>Programming Languages: Python, C/C++, JS, Typescript</li>
+      <li>Libraries/Frameworks: ReactJS, NextJS, NodeJs, Latex, Tensorflow, PyTorch, pandas, sklearn</li>
+      <li>Databases for ML/LLMs: FAISS, SQL, NoSQL, Pinecone</li>
+    </ul>
+  </section>
+
+  <!-- Relevant Coursework -->
+  <section id="coursework">
+    <h2>Relevant Coursework</h2>
+    <ul>
+      <li>Large language models: LLAMA2, GPT-4, Pytorch, Fairscale, Huggingface, LLM chains etc.</li>
+      <li>Introduction to DL: Python, Pytorch</li>
+      <li>Introduction to ML: Python, Pytorch</li>
+      <li>Advanced NLP: Pytorch, Huggingface</li>
+      <li>Intro to Comp. Systems: C, Assembly(X86)</li>
+      <li>Safe Reinforcement learning: Pytorch, OpenAI Gym</li>
+    </ul>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>LLM + RL conversational learning assistant</h3>
+      <p>Technologies: Huggingface, Pytorch, OpenAI gym</p>
+      <ul>
+        <li>Designed LLM + RL powered conversational learning assistant to enable AI powered individual fine-grained mentorship for language learners.</li>
+        <li>Optimized and tested RL agent with multiple actor-critic based RL optimization strategies.</li>
+      </ul>
+    </div>
+    <div class="project">
+      <h3>FAISS-Cache</h3>
+      <p>Technologies: C/C++</p>
+      <ul>
+        <li>Designed a from scratch a caching strategy for Vector databases (based on FAISS) for efficient mobile and edge deployment of Large language models. <strong>(awarded as best edge solution for LLMs)</strong></li>
+        <li>Winner for best edge solution in Qualcomm-wide Global ML hackathon (400+ participants)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Voluntary activities / Open-Source -->
+  <section id="voluntary">
+    <h2>Voluntary activities / Open-Source</h2>
+    <div class="voluntary">
+      <h3>Meadow Life</h3>
+      <p>Technologies: Flutter, Firebase, AWS, ReactJS</p>
+      <ul>
+        <li>Built a telemedicine platform (Android App) during the second wave of Covid-19 in India to help patients reach out to medical help providers online. Converted into pan-India telemedicine app with the help of 90 volunteer doctors.</li>
+      </ul>
+    </div>
+    <div class="voluntary">
+      <h3>CoronaWhy.org</h3>
+      <p>Technologies: Huggingface, Tensorflow, Neo4J, NextJS</p>
+      <ul>
+        <li>Deployed MLOps pipeline to update the number of vacant hospital beds in each state in India.</li>
+        <li>Created knowledge graphs using Neo4j graph database to efficiently query graph related data.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Honors & Awards -->
+  <section id="awards">
+    <h2>Honors & Awards</h2>
+    <ul>
+      <li>Tuition scholarship from Carnegie Mellon University to pursue Masters in Artificial Intelligence Eng.</li>
+      <li>One among the four out of 159 CMU students to be transferred to coveted MSAIE-IS program.</li>
+      <li>Bronze medal (twice) at International Cryptography Olympiad</li>
+      <li>National Talent Search Examination, India (NTSE) - Rank 25 out of 200,000+</li>
+      <li>Selected for NVIDIA Inception Program (Hyperweb.AI)</li>
+      <li>Selected for HKUST Summer school for PhD aspirants (one out of 9 across India)</li>
+      <li>Sponsorship from IIIT Hyderabad to present at CVPR</li>
+      <li>Selected to represent India at International Astronomy Olympiad (2014)</li>
+    </ul>
+  </section>
+
+</body>
 </html>
