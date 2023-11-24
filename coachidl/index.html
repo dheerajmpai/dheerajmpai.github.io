@@ -1,0 +1,2835 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="CoACH: Conversational Agent for curating Human language Learning        ">
+  <meta name="keywords" content="CoACH: Conversational Agent for curating Human language Learning  ">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CoACH: An interactive Conversational Agent for curating Human language Learning </title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://dheerajmpai.github.io">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://hypernerf.github.io">
+              HyperNeRF
+            </a>
+            <a class="navbar-item" href="https://nerfies.github.io">
+              Nerfies
+            </a>
+            <a class="navbar-item" href="https://latentfusion.github.io">
+              LatentFusion
+            </a>
+            <a class="navbar-item" href="https://photoshape.github.io">
+              PhotoShape
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">CoACH: An interactive Conversational Agent for curating Human
+              language Learning </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://dheerajmpai.github.io">Dheeraj Mohandas Pai</a><sup>1,*</sup>,</span>
+              <span class="author-block">
+               Bradley Whitehall<sup>1,*</sup>,</span>
+              <span class="author-block">
+                <a href="https://deigant1998.github.io/">Deigant Yadava</a><sup>1,*</sup>,
+              </span>
+              <span class="author-block">
+                Vinay Nair<sup>1,*</sup>,
+              </span>
+
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Carnegie Mellon University,</span>
+              <span class="author-block"><sup>*</sup>Equal Contribution</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://youtu.be/ym1XnJ2X-a0" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/google/nerfies" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./static/coachmain.gif" />
+        <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video> -->
+        <h2 class="subtitle has-text-centered">
+          <span class="dnerf">CoACH</span> is a novel conversational agent that leverages reinforcement learning and
+          knowledge tracing to personalize and enhance language learning experiences.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+
+            <p>In this work, we introduce an intelligent agent that can help humans learn a new subject by intelligently
+              scheduling the introduction of new concepts from that subject to the learner. We explore the application
+              of this agent on the task of language learning wherein we aim to help a learner improve their command on a
+              new language. The agent keeps track of the current knowledge and capability of the learner and
+              intelligently selects exercises for the user based on this current knowledge state. Our work aims to
+              provide a method to deduce the knowledge state of a user using the user's task history, such as past
+              mistakes and results from tests.
+
+            </p>
+            <p>
+              Our method involves a knowledge tracing model combined with a reinforcement learning agent to select the
+              best possible next exercise for the user. The tested model significantly outperforms a random policy,
+              which was selected as our baseline comparison. These successfully results demonstrate the capabilities of
+              reinforcement learning as a viable technique for online learning modules. We have made all code and
+              pre-trained models from this research public to encourage further research and development in this domain.
+
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ym1XnJ2X-a0?si=of2kM0XIXFwRti9c"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+  <section class="section">
+
+    <div class="container is-max-desktop">
+
+
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Introduction</h2>
+
+          <div class="content has-text-justified">
+            <p>
+              One of the best ways to learn any subject or topic is to be incrementally exposed to different concepts of
+              the subject over time. This iterative learning needs to be done in such a way that the concept introduced
+              at every step is of a slightly higher complexity as compared to the concepts that the learner already
+              knows. This means that the learning process can be enhanced for a learner if the concepts that are
+              introduced in each step are scheduled according to the current knowledge state of the learner. The same is
+              true if a learner is trying to learn a new language. One of the most effective ways to learn a new
+              language is through immersion, but not everyone has access to language immersion programs. We plan to
+              tackle this by developing an intelligent agent that can carry out personalized conversations with the
+              learner.
+            </p>
+
+            <p>This project would have two major components:</p>
+            <h5>Knowledge tracing:</h5>
+
+            <p>At every step, in order to personalize the conversations, the agent will keep track of the word-level
+              mistakes that the learner makes and use this data to generate a representation of the knowledge state of
+              the user (conversely, using the representation of the knowledge state we can predict the probability of a
+              user making a mistake on a particular word in a sentence). This knowledge representation is used by the
+              agent to generate relevant conversation.</p>
+
+            <h5>Conversation Agent:</h5>
+
+            <p>The conversational agent is responsible for generating new conversations with the learner based on the
+              current knowledge state of the user. We explore the applications of Sequence to Sequence models to
+              generate the next dialogue for the conversation (where the previous reply from the user and the knowledge
+              state of the user can be fed as the input to the model). We train the agent using Reinforcement learning
+              algorithms (Q-learning) to find the best action to select a conversation that can help in improving the
+              knowledge of the user. The reward for the reinforcement learning algorithm is based on the improvement in
+              the knowledge state of the user after having a conversation with the agent.</p>
+            <p>Our contributions are summarized as follows:</p>
+            <ul>
+              <li>
+                <!-- <span class="ltx_tag ltx_tag_item">•</span>  -->
+                <p>We propose a novel architecture based on Reinforcement learning and Deep knowledge tracing that can
+                  help humans in language learning.</p>
+              </li>
+              <li>
+                <p>We explore novel previously unexplored architectures, especially based on attention, for Deep
+                  knowledge tracing in the task of second language acquisition. In particular, we focus on architectures
+                  that can be easily integrated with our RL agent.</p>
+              </li>
+              <li>
+                <p>We train and evaluate a Q-learning based RL agent to intelligently schedule conversations that
+                  outperforms the baseline in terms of both cumulative reward and sample efficiency.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+
+    <div class="container is-max-desktop">
+
+
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <div class="content has-text-justified">
+            <h3> <span class="ltx_tag ltx_tag_subsection">2.1 </span>
+              Knowledge Tracing (KT):</h3>
+
+            <p>This approach involves the use of knowledge tracing for understanding what the user learned based on
+              their conversations with the bot. Prior works in Recurrent Neural Network(RNN) based Deep knowledge
+              tracing (DKT) <cite class="ltx_cite ltx_citemacro_cite">Piech<span class="ltx_text ltx_bib_etal"> et
+                  al.</span> (<a href="#bib.bib3" title="Deep knowledge tracing" class="ltx_ref">2015</a>)</cite>,
+              Transformer based DKT <cite class="ltx_cite ltx_citemacro_cite">Pandey and Karypis (<a href="#bib.bib10"
+                  title="A self-attentive model for knowledge tracing" class="ltx_ref">2019</a>)</cite>, GNN based
+              DKTs <cite class="ltx_cite ltx_citemacro_cite">Nakagawa<span class="ltx_text ltx_bib_etal"> et
+                  al.</span> (<a href="#bib.bib11"
+                  title="Graph-based knowledge tracing: modeling student proficiency using graph neural network"
+                  class="ltx_ref">2019</a>); Song<span class="ltx_text ltx_bib_etal"> et al.</span> (<a
+                  href="#bib.bib12" title="Bi-clkt: bi-graph contrastive learning based knowledge tracing"
+                  class="ltx_ref">2022</a>)</cite> show that deep knowledge tracing can be used effectively to model
+              the current knowledge state of a student purely based on the performance of previous questions and the
+              time taken to solve them. Given a new set of questions the DKT models predict if the student will be
+              able to solve the question or not. Though these works are not focused on language learning, the approach
+              can be used on language learning based on the dataset available from Duolingo.</p>
+
+            <p>Further, a Knowledge Graph based approach incorporating autoencoders to compute recommendations has
+              been developed by Bellini et al. <cite class="ltx_cite ltx_citemacro_cite">Bellini<span
+                  class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib4"
+                  title="Computing recommendations via a knowledge graph-aware autoencoder"
+                  class="ltx_ref">2018</a>)</cite>. The authors make use of a Knowledge Graph (KG) and build an
+              autoencoder to estimate this graph which in turn tries to learn the user's learning patterns. Although
+              this is not related to education, the approach ties really closely with what we're planning to achieve.
+            </p>
+
+            <p>To improve the capability of knowledge graph completion tasks Zhang et al. introduced a new model
+              architecture for relation graph neural networks <cite class="ltx_cite ltx_citemacro_cite">Zhang<span
+                  class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib16"
+                  title="Relational graph neural network with hierarchical attention for knowledge graph completion"
+                  class="ltx_ref">2020</a>)</cite>. Their model–Relational Graph neural network with Hierarchical
+              ATtention (RGHAT)–leverages information from local relationships in the knowledge graph. The use of
+              attention to maintain neighborhood information allows the model to notably outperform previous state of
+              the art models in knowledge graph completion tasks.</p>
+
+            <p>An additional method for improved knowledge tracing was implemented by <cite
+                class="ltx_cite ltx_citemacro_cite">Osika<span class="ltx_text ltx_bib_etal"> et al.</span> (<a
+                  href="#bib.bib18" title="Second language acquisition modeling: an ensemble approach"
+                  class="ltx_ref">2018</a>)</cite>, which involves the ensemble of multiple independent knowledge
+              tracing models <cite class="ltx_cite ltx_citemacro_cite">Osika<span class="ltx_text ltx_bib_etal"> et
+                  al.</span> (<a href="#bib.bib18" title="Second language acquisition modeling: an ensemble approach"
+                  class="ltx_ref">2018</a>)</cite>. This method has shown to provide knowledge tracing with greater
+              accuracy than any single knowledge tracing model has been able to achieve. One of the individual models
+              employed by <cite class="ltx_cite ltx_citemacro_cite">Osika<span class="ltx_text ltx_bib_etal"> et
+                  al.</span> (<a href="#bib.bib18" title="Second language acquisition modeling: an ensemble approach"
+                  class="ltx_ref">2018</a>)</cite> is a gradient boosted decision tree using the light GBM framework.
+              The light GBM framework was developed by Ke et al. <cite class="ltx_cite ltx_citemacro_cite">Ke<span
+                  class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib19"
+                  title="Lightgbm: a highly efficient gradient boosting decision tree" class="ltx_ref">2017</a>)</cite>.
+              The light GBM framework allows for training a decision tree using
+              only a fraction of the dataset at a time. This makes it an ideal framework to train a decision tree on a
+              large, sparse data set such as ours.</p>
+
+            <p>A Bayesian knowledge tracing (BKTs) <cite class="ltx_cite ltx_citemacro_cite">Corbett and Anderson (<a
+                  href="#bib.bib25" title="Knowledge tracing: modeling the acquisition of procedural knowledge"
+                  class="ltx_ref">2005</a>)</cite> and Individualized BKT (I-BKT) <cite
+                class="ltx_cite ltx_citemacro_cite">Yudelson<span class="ltx_text ltx_bib_etal"> et al.</span> (<a
+                  href="#bib.bib24" title="Individualized bayesian knowledge tracing models"
+                  class="ltx_ref">2013</a>)</cite> models can also be used to simulate the learners understanding of a
+              subject.
+              Though DKTs outperform BKTs in knowledge tracing, BKTs can often be used when the number of samples is
+              not sufficient to train a deep learning model. Bassen et. al. <cite
+                class="ltx_cite ltx_citemacro_cite">Bassen<span class="ltx_text ltx_bib_etal"> et al.</span> (<a
+                  href="#bib.bib1"
+                  title="How to train your learners: reinforcement learning for the scheduling of online learning activities"
+                  class="ltx_ref">2020</a>)</cite> uses BKT models to simulate student's understanding of the subject
+              based on minimal test scores and samples. This is very useful when there is a human in a loop - where
+              data is both online and real-time provided by the student using the learning app.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+
+    <div class="container is-max-desktop">
+
+
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+
+          <div class="content has-text-justified">
+
+            <h3 class="ltx_title ltx_title_subsection">
+              <span class="ltx_tag ltx_tag_subsection">2.2 </span>Conversational Agent
+            </h3>
+
+            <p>As a motivation for this research we use the work done by Ruan et al. <cite
+                class="ltx_cite ltx_citemacro_cite">Ruan<span class="ltx_text ltx_bib_etal"> et al.</span> (<a
+                  href="#bib.bib2" title="Englishbot: an ai-powered conversational system for second language learning"
+                  class="ltx_ref">2021</a>)</cite> where they show that leveraging interactive chatbots can help in
+              improving the language learning experience of students. The authors worked with 56 Chinese students who
+              tried to learn English as a second language and showed that their performances improved more when using
+              an interactive chatbot (as compared to traditional listen and repeat methods) when evaluated by the
+              IELTS grading standard for voluntary learning.</p>
+
+            <p>Recent work by Bassen et al. <cite class="ltx_cite ltx_citemacro_cite">Bassen<span
+                  class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib1"
+                  title="How to train your learners: reinforcement learning for the scheduling of online learning activities"
+                  class="ltx_ref">2020</a>)</cite> shows that reinforcement learning can be used to effectively
+              schedule the learning activities of a person. The RL agent is trained to suggest the educational
+              activities to maximise the total gain in knowledge and minimise total time consumed while in learning
+              the subject. The policy is optimized using sample-efficient proximal policy optimization (PPO) which is
+              very essential in the case where the number of samples from the users would be significantly low.</p>
+
+            <p>A sample efficient policy optimization is very essential in our case where the number of samples from
+              the users would be significantly low. Model based re-inforcement learning have showed promising results
+              for sample-efficiency without much compromise on the performance <cite
+                class="ltx_cite ltx_citemacro_cite">Wang<span class="ltx_text ltx_bib_etal"> et al.</span> (<a
+                  href="#bib.bib20" title="Benchmarking model-based reinforcement learning"
+                  class="ltx_ref">2019</a>)</cite>. When it comes to policy optimizations Proximal Policy
+              optimization(PPO) <cite class="ltx_cite ltx_citemacro_cite">Schulman<span class="ltx_text ltx_bib_etal">
+                  et al.</span> (<a href="#bib.bib13" title="Proximal policy optimization algorithms"
+                  class="ltx_ref">2017b</a>)</cite>, and Trust region policy optimization (TRPO) <cite
+                class="ltx_cite ltx_citemacro_cite">Schulman<span class="ltx_text ltx_bib_etal"> et al.</span> (<a
+                  href="#bib.bib27" title="Trust region policy optimization" class="ltx_ref">2017a</a>)</cite>, Deep
+              deterministic Policy gradients <cite class="ltx_cite ltx_citemacro_cite">Lillicrap<span
+                  class="ltx_text ltx_bib_etal"> et al.</span> (<a href="#bib.bib28"
+                  title="Continuous control with deep reinforcement learning" class="ltx_ref">2019</a>)</cite>(DDPG),
+              Twin delayed DDPG <cite class="ltx_cite ltx_citemacro_cite">Fujimoto<span class="ltx_text ltx_bib_etal">
+                  et al.</span> (<a href="#bib.bib29"
+                  title="Addressing function approximation error in actor-critic methods"
+                  class="ltx_ref">2018</a>)</cite>, have shown much better sample efficiency compared to the basic
+              policy gradient optimizations.</p>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <div class="content has-text-justified">
+
+            <h2>
+              <span>3 </span>Model Architecture
+            </h2>
+
+            <h3>
+              <span>3.1 </span>Overall Vision
+            </h3>
+
+            <div id="S3.SS1.p1">
+              <p>The overall vision that we have in mind for this project is to create an interactive agent that can
+                converse with the users (either by asking questions or just generally discussing a topic) in a target
+                language (which the users want to learn). The conversations that the agent generates should be
+                tailored to the skill level of each user. In order to do that same, the agent needs to be able to have
+                the following two components:</p>
+              <ol id="S3.I1">
+                <li id="S3.I1.i1">
+                  <p> A knowledge tracing module that will keep track of the user replies and build a representation
+                    of the current skill level of the user</p>
+                </li>
+                <li id="S3.I1.i2">
+                  <div id="S3.I1.i2.p1">
+                    <p>A conversation generator that will select the next sentence/unit of conversation on the basis
+                      of the current skill level of the user.</p>
+                  </div>
+
+                </li>
+              </ol>
+            </div>
+
+            <figure id="S3.F1" class="ltx_figure"><img src="Images/End_To_End_Simple.png" id="S3.F1.g1"
+                class="ltx_graphics ltx_centering" width="325" height="175"
+                alt="End to End view of the conversational agent">
+              <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 1: </span>End
+                to End view of the conversational agent</figcaption>
+            </figure>
+            <section id="S3.SS2">
+              <h3>
+                <span>3.2 </span> Dataset Description
+              </h3>
+
+              <div id="S3.SS2.p1">
+                <p>For the specific task of knowledge tracing and conversation generation targeted to language
+                  learning, we make use of the dataset for Second Language Acquisition modeling that was released by
+                  Duolingo <cite class="ltx_cite ltx_citemacro_cite">Settles<span class="ltx_text ltx_bib_etal"> et
+                      al.</span> (<a href="#bib.bib8" title="Second language acquisition modeling"
+                      class="ltx_ref">2018</a>)</cite>. For every user, the dataset consists of the history of
+                  interactions of the user (in terms of the exercises that have been completed) :</p>
+                <ol id="S3.I2">
+                  <li id="S3.I2.i1">
+                    <div id="S3.I2.i1.p1">
+                      <p>Each exercise can from one of the following formats:</p>
+                      <ol id="S3.I2.i1.I1">
+                        <li id="S3.I2.i1.I1.i1">
+                          <div id="S3.I2.i1.I1.i1.p1">
+                            <p>reverse_translate: Given a language in the known language, translate it to the new
+                              language (being learned)</p>
+                          </div>
+                        </li>
+                        <li id="S3.I2.i1.I1.i2">
+                          <div id="S3.I2.i1.I1.i2.p1">
+                            <p>reverse_tap: Given a language in the known language, translate it to the new language
+                              (being learned) by selecting options from a given set of tags.</p>
+                          </div>
+                        </li>
+                        <li id="S3.I2.i1.I1.i3">
+                          <div id="S3.I2.i1.I1.i3.p1">
+                            <p>listen: Listen to a sentence in the language being learned and then transcribe it.</p>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                    <figure id="S3.F2" class="ltx_figure"><img src="Images/Duolingo%20Exercise%20Formats.png"
+                        id="S3.F2.g1" class="ltx_graphics ltx_centering" width="432" height="250"
+                        alt="Exercise formats available in Duolingo">
+                      <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 2:
+                        </span>Exercise formats available in Duolingo<cite
+                          class="ltx_cite ltx_citemacro_cite">Settles<span class="ltx_text ltx_bib_etal"> et
+                            al.</span> (<a href="#bib.bib8" title="Second language acquisition modeling"
+                            class="ltx_ref">2018</a>)</cite>.</figcaption>
+                    </figure>
+                  </li>
+                  <li id="S3.I2.i2">
+                    <div id="S3.I2.i2.p1">
+                      <p>For each exercise, we are given the following:
+                      </p>
+                      <ol id="S3.I2.i2.I1">
+                        <li id="S3.I2.i2.I1.i1">
+                          <div id="S3.I2.i2.I1.i1.p1">
+                            <p>The written prompt that was provided to the user in the known language (if the format
+                              was reverse_translate or reverse_tap).</p>
+                          </div>
+                        </li>
+                        <li id="S3.I2.i2.I1.i2">
+                          <div id="S3.I2.i2.I1.i2.p1">
+                            <p>The correct answer for the exercise (closest to the answer that was provided by the
+                              user).Due to the existence of synonyms, homophones, and ambiguities in number, tense,
+                              formality, etc., each exercise on Duolingo may have thousands of correct answers.
+                              Therefore, to match the student's response to the most appropriate correct answer from
+                              the extensive set of acceptable answers, Duolingo utilizes FSTs.</p>
+                          </div>
+                        </li>
+                        <li id="S3.I2.i2.I1.i3">
+                          <div id="S3.I2.i2.I1.i3.p1">
+                            <p>Labels for each token in the correct answer to indicate if the user got that token
+                              right or not</p>
+                          </div>
+                        </li>
+                        <li id="S3.I2.i2.I1.i4">
+                          <div id="S3.I2.i2.I1.i4.p1">
+                            <p>Morhopology labels for each token in the closest correct answer</p>
+                          </div>
+                        </li>
+                        <li id="S3.I2.i2.I1.i5">
+                          <div id="S3.I2.i2.I1.i5.p1">
+                            <p>Time taken by the user to complete the exercise.</p>
+                          </div>
+                        </li>
+                        <li id="S3.I2.i2.I1.i6">
+                          <div id="S3.I2.i2.I1.i6.p1">
+                            <p>Time since the user started learning that language</p>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <p> </p>
+
+              <div id="S3.SS2.p2">
+                <p>We will be using this dataset to train our knowledge tracing model as well as create the initial
+                  version of the conversation generator.</p>
+              </div>
+              <figure id="S3.F3" class="ltx_figure"><img src="Images/Example%20Exercise.png" id="S3.F3.g1"
+                  class="ltx_graphics ltx_centering" width="541" height="55" alt="Example Exercise in Duolingo">
+                <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 3:
+                  </span>Example Exercise in Duolingo</figcaption>
+              </figure>
+            </section>
+
+            <h3>
+              <span>3.3 </span>Knowledge Tracing Module
+            </h3>
+
+            <div id="S3.SS3.p1">
+              <p>The expectation of the knowledge tracing model is as follows:</p>
+              <ol id="S3.I3">
+                <li id="S3.I3.i1">
+                  <div id="S3.I3.i1.p1">
+                    <p>Given the history of the user, i.e. the set of exercises that have been completed by the user
+                      (along with the labels indicating whether or not the user got a particular token in the
+                      exercise correct) : the model should be able to predict the performance of the user on a new
+                      exercise</p>
+                  </div>
+                </li>
+                <li id="S3.I3.i2">
+                  <div id="S3.I3.i2.p1">
+                    <p>If the set of exercises that have been completed by the user along with the labels for each
+                      token in each exercise is given by E = <math id="S3.I3.i2.p1.m1" class="ltx_Math"
+                        alttext="\{\{E_{1},L_{1}\},\{E_{2},L_{2}\},\{E_{3},L_{3}\},...\}\}" display="inline">
+                        <mrow>
+                          <mrow>
+                            <mo stretchy="false">{</mo>
+                            <mrow>
+                              <mo stretchy="false">{</mo>
+                              <msub>
+                                <mi>E</mi>
+                                <mn>1</mn>
+                              </msub>
+                              <mo>,</mo>
+                              <msub>
+                                <mi>L</mi>
+                                <mn>1</mn>
+                              </msub>
+                              <mo stretchy="false">}</mo>
+                            </mrow>
+                            <mo>,</mo>
+                            <mrow>
+                              <mo stretchy="false">{</mo>
+                              <msub>
+                                <mi>E</mi>
+                                <mn>2</mn>
+                              </msub>
+                              <mo>,</mo>
+                              <msub>
+                                <mi>L</mi>
+                                <mn>2</mn>
+                              </msub>
+                              <mo stretchy="false">}</mo>
+                            </mrow>
+                            <mo>,</mo>
+                            <mrow>
+                              <mo stretchy="false">{</mo>
+                              <msub>
+                                <mi>E</mi>
+                                <mn>3</mn>
+                              </msub>
+                              <mo>,</mo>
+                              <msub>
+                                <mi>L</mi>
+                                <mn>3</mn>
+                              </msub>
+                              <mo stretchy="false">}</mo>
+                            </mrow>
+                            <mo>,</mo>
+                            <mi mathvariant="normal">…</mi>
+                            <mo stretchy="false">}</mo>
+                          </mrow>
+                          <mo stretchy="false">}</mo>
+                        </mrow>
+                      </math> and the new exercise that we are going to predict on is given by <math id="S3.I3.i2.p1.m2"
+                        class="ltx_Math" alttext="X=\{X_{1},X_{2},X_{3}\ldots X_{n}\}" display="inline">
+                        <mrow>
+                          <mi>X</mi>
+                          <mo>=</mo>
+                          <mrow>
+                            <mo stretchy="false">{</mo>
+                            <msub>
+                              <mi>X</mi>
+                              <mn>1</mn>
+                            </msub>
+                            <mo>,</mo>
+                            <msub>
+                              <mi>X</mi>
+                              <mn>2</mn>
+                            </msub>
+                            <mo>,</mo>
+                            <mrow>
+                              <msub>
+                                <mi>X</mi>
+                                <mn>3</mn>
+                              </msub>
+                              <mo>⁢</mo>
+                              <mi mathvariant="normal">…</mi>
+                              <mo>⁢</mo>
+                              <msub>
+                                <mi>X</mi>
+                                <mi>n</mi>
+                              </msub>
+                            </mrow>
+                            <mo stretchy="false">}</mo>
+                          </mrow>
+                        </mrow>
+                      </math>, then the goal of the knowledge module is to predict the following: <math
+                        id="S3.I3.i2.p1.m3" class="ltx_Math" alttext="P(Y_{i}|X,E)\forall i\in\{1,2,...n\}"
+                        display="inline">
+                        <mrow>
+                          <mrow>
+                            <mi>P</mi>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <mrow>
+                                <msub>
+                                  <mi>Y</mi>
+                                  <mi>i</mi>
+                                </msub>
+                                <mo lspace="2.5pt" rspace="2.5pt" stretchy="false">|</mo>
+                                <mrow>
+                                  <mi>X</mi>
+                                  <mo>,</mo>
+                                  <mi>E</mi>
+                                </mrow>
+                              </mrow>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo>∀</mo>
+                              <mi>i</mi>
+                            </mrow>
+                          </mrow>
+                          <mo>∈</mo>
+                          <mrow>
+                            <mo stretchy="false">{</mo>
+                            <mn>1</mn>
+                            <mo>,</mo>
+                            <mn>2</mn>
+                            <mo>,</mo>
+                            <mrow>
+                              <mi mathvariant="normal">…</mi>
+                              <mo>⁢</mo>
+                              <mi>n</mi>
+                            </mrow>
+                            <mo stretchy="false">}</mo>
+                          </mrow>
+                        </mrow>
+                      </math> where <math id="S3.I3.i2.p1.m4" class="ltx_Math" alttext="Y_{i}" display="inline">
+                        <msub>
+                          <mi>Y</mi>
+                          <mi>i</mi>
+                        </msub>
+                      </math> refers to the probability that the user will get the token <math id="S3.I3.i2.p1.m5"
+                        class="ltx_Math" alttext="X_{i}" display="inline">
+                        <msub>
+                          <mi>X</mi>
+                          <mi>i</mi>
+                        </msub>
+                      </math> incorrect.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <p> </p>
+            <div id="S3.SS3.p2">
+              <p>In order to train our knowledge model, we make use of the tokens in the closest matching correct
+                answer that has been provided in the dataset for each exercise. This is because the tokens
+                corresponding to the correct answer actually represent the concepts that we want the user to learn
+                (i.e. the concepts from the new language). We make use of the GloVe embeddings of these tokens
+                in-order to make sure that we capture the meaning/essence of each of these tokens.</p>
+            </div>
+            <p> </p>
+            <p> </p>
+
+            <h4>
+
+              <span class="ltx_tag ltx_tag_subsubsection">3.3.1 </span>Proposed Architecture:
+            </h4>
+
+            <div id="S3.SS3.SSS1.p1">
+              <p>We propose to make use of an encoder-decoder architecture to develop our knowledge model. The
+                following figure provides a high level overview of the architecture of the knowledge model:
+                <br class="ltx_break">
+              </p>
+            </div>
+
+            <figure id="S3.F4" class="ltx_figure"><img src="Images/LSTM%20Knowledge%20Model.png" id="S3.F4.g1"
+                class="ltx_graphics" width="541" height="412" alt="Encoder Decoder Architecture for Knowledge tracing">
+              <figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 4: </span>Encoder Decoder
+                Architecture for Knowledge tracing</figcaption>
+            </figure>
+            <div id="S3.SS3.SSS1.p2">
+              <p>In our knowledge model, the encoder is responsible for creating a hidden representation of the
+                knowledge state of the user and the decoder will be responsible for making use of that knowledge
+                state and predicting the performance of the user on a new unknown set of exercises.</p>
+            </div>
+            <div id="S3.SS3.SSS1.p3">
+              <p>The overall architecture of the knowledge model can be summarized as follows:</p>
+            </div>
+            <div id="S3.SS3.SSS1.p4">
+              <ol id="S3.I4">
+                <li id="S3.I4.i1">
+                  <div id="S3.I4.i1.p1">
+                    <p>The encoder consists of 5 layers of Bidirectional LSTM, followed by 3 pBLSTM layers to create
+                      a condensed representation of the input (user history).</p>
+                  </div>
+                </li>
+                <li id="S3.I4.i2">
+                  <div id="S3.I4.i2.p1">
+                    <p>We make use of 2 multi head attention layers on the outputs of the pBLSTM to take any long
+                      range dependencies between the inputs into consideration.</p>
+                  </div>
+                </li>
+                <li id="S3.I4.i3">
+                  <div id="S3.I4.i3.p1">
+                    <p>The output from the multi head attention layers is condensed into a single vector by making
+                      use of max-pooling. This single vector is a representation of the knowledege state of the
+                      user.</p>
+                  </div>
+                </li>
+                <li id="S3.I4.i4">
+                  <div id="S3.I4.i4.p1">
+                    <p>The decoder again, consists of 5 layers of Bidirectional LSTM to create a hidden
+                      representation of the test exercises (on which we want to predict the responses of the user).
+                      The decoder will create a single hidden representation for each token in the test exercises.
+                    </p>
+                  </div>
+                </li>
+                <li id="S3.I4.i5">
+                  <div id="S3.I4.i5.p1">
+                    <p>Finally, the decoder has a 3 layered Feed Forward network that takes in the hidden state (of
+                      the test token) along with the knowledge state of the user and then predicts the probability
+                      that the user will get that particular token incorrect.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <p>Please refer to section 4 for a detailed explanation of the training of the knowledge module.</p>
+
+
+            <h3>
+              <span>3.4 </span>Conversational Agent
+            </h3>
+
+            <p>The goal of the conversational agent is to generate the next exercise that should be provided to the
+              user such that the expected knowledge gain of the user is maximized. We followed an iterative approach
+              to develop a Reinforcement Learning based agent that will generate the next exercise.</p>
+
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">3.4.1 </span>Scheduling Algorithm for exercise selection
+            </h4>
+
+            <div id="S3.SS4.SSS1.p1">
+              <p>As the first step towards developing an interactive agent, we first developed a simple
+                Reinforcement Learning based scheduling algorithm. The Agent in this case is responsible for
+                choosing the best possible way to schedule the existing exercises from the Duolingo dataset such
+                that the knowledge gain of the user is maximised.</p>
+            </div>
+
+            <div id="S3.SS4.SSS1.p2">
+              <p>In our implementation the reinforcement learning agent is trained using Q-learning. The following
+                are some architectural details of the reinforcement learning agent:</p>
+            </div>
+            <div id="S3.SS4.SSS1.p3">
+              <ol id="S3.I5">
+                <li id="S3.I5.i1">
+                  <div id="S3.I5.i1.p1">
+                    <p>The agent is actually implemented as a simple linear regression model that is responsible for
+                      modelling the Q-Value for any given (state, action) pair.</p>
+                  </div>
+                </li>
+                <li id="S3.I5.i2">
+                  <div id="S3.I5.i2.p1">
+                    <p>In our case, the state is actually the knowledge state vector of the user and the action
+                      space is the set of exercises that can be presented to the user. During training, the input to
+                      the RL agent consists of the vector representing the knowledge state of the user and the
+                      embedding of a candidate exercise which are computed using Sentence BERT.</p>
+                  </div>
+                </li>
+                <li id="S3.I5.i3">
+                  <div id="S3.I5.i3.p1">
+                    <p>We follow an <math id="S3.I5.i3.p1.m1" class="ltx_Math" alttext="\epsilon" display="inline">
+                        <mi>ϵ</mi>
+                      </math> greedy policy to train the reinforcement learning agent. In every iteration, the
+                      reinforcement learning selects a random action/exercise with probability <math id="S3.I5.i3.p1.m2"
+                        class="ltx_Math" alttext="\epsilon" display="inline">
+                        <mi>ϵ</mi>
+                      </math> and with probability <math id="S3.I5.i3.p1.m3" class="ltx_Math" alttext="1-\epsilon"
+                        display="inline">
+                        <mrow>
+                          <mn>1</mn>
+                          <mo>-</mo>
+                          <mi>ϵ</mi>
+                        </mrow>
+                      </math>, the agent iterates over the entire set of candidate exercises that are available,
+                      computes the Q value for each of them and then selects the one that has the maximum Q-value.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <figure id="S3.F5" class="ltx_figure"><img src="Images/ConversationAgentStep1.png" id="S3.F5.g1"
+                class="ltx_graphics ltx_centering" width="541" height="146" alt="An RL based scheduling Agent">
+              <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 5: </span>An
+                RL based scheduling Agent</figcaption>
+            </figure>
+            <p>Please refer to section 4 for a more detailed explanation of the training procedure used for the
+              reinforcement learning agent.
+            </p>
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">3.4.2 </span>Reinforcement Learning and Simulated Learners
+            </h4>
+
+            <div id="S3.SS4.SSS2.p1">
+              <p>In the ideal scenario, the Reinforcement Learning algorithm (as mentioned above) would have to be
+                trained on the outputs from human language learners.
+                In the absence of such data, we will be making use of Simulated learners based on Bayesian Knowledge
+                Tracing (BKT)<cite class="ltx_cite ltx_citemacro_cite">Corbett and Anderson (<a href="#bib.bib25"
+                    title="Knowledge tracing: modeling the acquisition of procedural knowledge"
+                    class="ltx_ref">2005</a>)</cite> Bayesian knowledge tracing can be used to model the learning
+                curves for the skills of each user. As per the original proposal in Bayesian Knowledge tracing, each
+                "skill" is either in the learned state or the unlearned state. The following probabilities can be
+                used to model the growth of a skill for a particular user:</p>
+              <ol id="S3.I6">
+                <li id="S3.I6.i1">
+                  <div id="S3.I6.i1.p1">
+                    <p><math id="S3.I6.i1.p1.m1" class="ltx_Math" alttext="P(L_{0}):" display="inline">
+                        <mrow>
+                          <mrow>
+                            <mi>P</mi>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <msub>
+                                <mi>L</mi>
+                                <mn>0</mn>
+                              </msub>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                          </mrow>
+                          <mo>:</mo>
+                          <mi></mi>
+                        </mrow>
+                      </math> The probability that the skill is in the learned state for the user at time 0.</p>
+                  </div>
+                </li>
+                <li id="S3.I6.i2">
+                  <div id="S3.I6.i2.p1">
+                    <p><math id="S3.I6.i2.p1.m1" class="ltx_Math" alttext="P(T):" display="inline">
+                        <mrow>
+                          <mrow>
+                            <mi>P</mi>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <mi>T</mi>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                          </mrow>
+                          <mo>:</mo>
+                          <mi></mi>
+                        </mrow>
+                      </math> The probability that the skill will transition from the Unlearned state to the learned
+                      state when a chance to apply the given skill is presented to the user.</p>
+                  </div>
+                </li>
+                <li id="S3.I6.i3">
+                  <div id="S3.I6.i3.p1">
+                    <p><math id="S3.I6.i3.p1.m1" class="ltx_Math" alttext="P(G):" display="inline">
+                        <mrow>
+                          <mrow>
+                            <mi>P</mi>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <mi>G</mi>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                          </mrow>
+                          <mo>:</mo>
+                          <mi></mi>
+                        </mrow>
+                      </math> The probability that the user will guess the correct answer to an exercise which
+                      requires the application of a skill that is currently in the unlearned state for the user</p>
+                  </div>
+                </li>
+                <li id="S3.I6.i4">
+                  <div id="S3.I6.i4.p1">
+                    <p><math id="S3.I6.i4.p1.m1" class="ltx_Math" alttext="P(S):" display="inline">
+                        <mrow>
+                          <mrow>
+                            <mi>P</mi>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <mi>S</mi>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                          </mrow>
+                          <mo>:</mo>
+                          <mi></mi>
+                        </mrow>
+                      </math> The probability that the user will slip and provide the incorrect answer to an
+                      exercise which requires the application of a skill that is currently in the learned state for
+                      the user</p>
+                  </div>
+                </li>
+                <li id="S3.I6.i5">
+                  <div id="S3.I6.i5.p1">
+                    <p><math id="S3.I6.i5.p1.m1" class="ltx_Math" alttext="P(L_{t}):" display="inline">
+                        <mrow>
+                          <mrow>
+                            <mi>P</mi>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <msub>
+                                <mi>L</mi>
+                                <mi>t</mi>
+                              </msub>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                          </mrow>
+                          <mo>:</mo>
+                          <mi></mi>
+                        </mrow>
+                      </math> The probability that the skill is in the learned state for the user at time t.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div id="S3.SS4.SSS2.p2">
+              <p> </p>
+
+              <p>Using the above probabilities, the probability that the user will give the correct answer to an
+                exercise at time 't' is given as:</p>
+              <table id="S3.Ex1" class="ltx_equation ltx_eqn_table">
+
+                <tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+                  <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+                  <td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex1.m1" class="ltx_Math"
+                      alttext="P(C)=P(L_{t})*(1-P(S))+(1-P(L_{t}))*P(G)" display="block">
+                      <mrow>
+                        <mrow>
+                          <mi>P</mi>
+                          <mo>⁢</mo>
+                          <mrow>
+                            <mo stretchy="false">(</mo>
+                            <mi>C</mi>
+                            <mo stretchy="false">)</mo>
+                          </mrow>
+                        </mrow>
+                        <mo>=</mo>
+                        <mrow>
+                          <mrow>
+                            <mrow>
+                              <mi>P</mi>
+                              <mo>⁢</mo>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <msub>
+                                  <mi>L</mi>
+                                  <mi>t</mi>
+                                </msub>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                            </mrow>
+                            <mo>*</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <mrow>
+                                <mn>1</mn>
+                                <mo>-</mo>
+                                <mrow>
+                                  <mi>P</mi>
+                                  <mo>⁢</mo>
+                                  <mrow>
+                                    <mo stretchy="false">(</mo>
+                                    <mi>S</mi>
+                                    <mo stretchy="false">)</mo>
+                                  </mrow>
+                                </mrow>
+                              </mrow>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                          </mrow>
+                          <mo>+</mo>
+                          <mrow>
+                            <mrow>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <mrow>
+                                  <mn>1</mn>
+                                  <mo>-</mo>
+                                  <mrow>
+                                    <mi>P</mi>
+                                    <mo>⁢</mo>
+                                    <mrow>
+                                      <mo stretchy="false">(</mo>
+                                      <msub>
+                                        <mi>L</mi>
+                                        <mi>t</mi>
+                                      </msub>
+                                      <mo stretchy="false">)</mo>
+                                    </mrow>
+                                  </mrow>
+                                </mrow>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                              <mo>*</mo>
+                              <mi>P</mi>
+                            </mrow>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <mi>G</mi>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                          </mrow>
+                        </mrow>
+                      </mrow>
+                    </math></td>
+                  <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+                </tr>
+              </table>
+              <p>and once the user has provide the answer to an exercise, the probability that the skill will be in
+                the learned state at time t+1 will be given as:</p>
+              <table id="S3.Ex2" class="ltx_equation ltx_eqn_table">
+
+                <tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+                  <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+                  <td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex2.m1" class="ltx_Math"
+                      alttext="P(L_{t+1})=P(L_{t}|obs_{t})+(1-P(L_{T}|obs_{t}))*P(T)" display="block">
+                      <mrow>
+                        <mrow>
+                          <mi>P</mi>
+                          <mo>⁢</mo>
+                          <mrow>
+                            <mo stretchy="false">(</mo>
+                            <msub>
+                              <mi>L</mi>
+                              <mrow>
+                                <mi>t</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                              </mrow>
+                            </msub>
+                            <mo stretchy="false">)</mo>
+                          </mrow>
+                        </mrow>
+                        <mo>=</mo>
+                        <mrow>
+                          <mrow>
+                            <mi>P</mi>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <mrow>
+                                <msub>
+                                  <mi>L</mi>
+                                  <mi>t</mi>
+                                </msub>
+                                <mo lspace="2.5pt" rspace="2.5pt" stretchy="false">|</mo>
+                                <mrow>
+                                  <mi>o</mi>
+                                  <mo>⁢</mo>
+                                  <mi>b</mi>
+                                  <mo>⁢</mo>
+                                  <msub>
+                                    <mi>s</mi>
+                                    <mi>t</mi>
+                                  </msub>
+                                </mrow>
+                              </mrow>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                          </mrow>
+                          <mo>+</mo>
+                          <mrow>
+                            <mrow>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <mrow>
+                                  <mn>1</mn>
+                                  <mo>-</mo>
+                                  <mrow>
+                                    <mi>P</mi>
+                                    <mo>⁢</mo>
+                                    <mrow>
+                                      <mo stretchy="false">(</mo>
+                                      <mrow>
+                                        <msub>
+                                          <mi>L</mi>
+                                          <mi>T</mi>
+                                        </msub>
+                                        <mo lspace="2.5pt" rspace="2.5pt" stretchy="false">|</mo>
+                                        <mrow>
+                                          <mi>o</mi>
+                                          <mo>⁢</mo>
+                                          <mi>b</mi>
+                                          <mo>⁢</mo>
+                                          <msub>
+                                            <mi>s</mi>
+                                            <mi>t</mi>
+                                          </msub>
+                                        </mrow>
+                                      </mrow>
+                                      <mo stretchy="false">)</mo>
+                                    </mrow>
+                                  </mrow>
+                                </mrow>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                              <mo>*</mo>
+                              <mi>P</mi>
+                            </mrow>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <mi>T</mi>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                          </mrow>
+                        </mrow>
+                      </mrow>
+                    </math></td>
+                  <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+                </tr>
+              </table>
+              <p>where <math id="S3.SS4.SSS2.p2.m1" class="ltx_Math" alttext="P(L_{t}|obs)" display="inline">
+                  <mrow>
+                    <mi>P</mi>
+                    <mo>⁢</mo>
+                    <mrow>
+                      <mo stretchy="false">(</mo>
+                      <mrow>
+                        <msub>
+                          <mi>L</mi>
+                          <mi>t</mi>
+                        </msub>
+                        <mo lspace="2.5pt" rspace="2.5pt" stretchy="false">|</mo>
+                        <mrow>
+                          <mi>o</mi>
+                          <mo>⁢</mo>
+                          <mi>b</mi>
+                          <mo>⁢</mo>
+                          <mi>s</mi>
+                        </mrow>
+                      </mrow>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                  </mrow>
+                </math> refers to the posterior probability of the skill being in the learned state once we have
+                seen the response (<math id="S3.SS4.SSS2.p2.m2" class="ltx_Math" alttext="obs_{t}" display="inline">
+                  <mrow>
+                    <mi>o</mi>
+                    <mo>⁢</mo>
+                    <mi>b</mi>
+                    <mo>⁢</mo>
+                    <msub>
+                      <mi>s</mi>
+                      <mi>t</mi>
+                    </msub>
+                  </mrow>
+                </math>) of the user to the exercise at time 't' and</p>
+              <table id="S3.Ex3" class="ltx_equation ltx_eqn_table">
+
+                <tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+                  <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+                  <td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex3.m1" class="ltx_Math" alttext="P(L_{t}|obs_{t}=correct)=\dfrac{P(L_{t})*(1-P(S))}{P(L_{t})(1-P(S))+(1-P(L_{t}%
+              ))P(G)}" display="block">
+                      <mrow>
+                        <mrow>
+                          <mi>P</mi>
+                          <mo>⁢</mo>
+                          <mrow>
+                            <mo stretchy="false">(</mo>
+                            <mrow>
+                              <mrow>
+                                <msub>
+                                  <mi>L</mi>
+                                  <mi>t</mi>
+                                </msub>
+                                <mo lspace="2.5pt" rspace="2.5pt" stretchy="false">|</mo>
+                                <mrow>
+                                  <mi>o</mi>
+                                  <mo>⁢</mo>
+                                  <mi>b</mi>
+                                  <mo>⁢</mo>
+                                  <msub>
+                                    <mi>s</mi>
+                                    <mi>t</mi>
+                                  </msub>
+                                </mrow>
+                              </mrow>
+                              <mo>=</mo>
+                              <mrow>
+                                <mi>c</mi>
+                                <mo>⁢</mo>
+                                <mi>o</mi>
+                                <mo>⁢</mo>
+                                <mi>r</mi>
+                                <mo>⁢</mo>
+                                <mi>r</mi>
+                                <mo>⁢</mo>
+                                <mi>e</mi>
+                                <mo>⁢</mo>
+                                <mi>c</mi>
+                                <mo>⁢</mo>
+                                <mi>t</mi>
+                              </mrow>
+                            </mrow>
+                            <mo stretchy="false">)</mo>
+                          </mrow>
+                        </mrow>
+                        <mo>=</mo>
+                        <mfrac>
+                          <mrow>
+                            <mrow>
+                              <mi>P</mi>
+                              <mo>⁢</mo>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <msub>
+                                  <mi>L</mi>
+                                  <mi>t</mi>
+                                </msub>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                            </mrow>
+                            <mo>*</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <mrow>
+                                <mn>1</mn>
+                                <mo>-</mo>
+                                <mrow>
+                                  <mi>P</mi>
+                                  <mo>⁢</mo>
+                                  <mrow>
+                                    <mo stretchy="false">(</mo>
+                                    <mi>S</mi>
+                                    <mo stretchy="false">)</mo>
+                                  </mrow>
+                                </mrow>
+                              </mrow>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                          </mrow>
+                          <mrow>
+                            <mrow>
+                              <mi>P</mi>
+                              <mo>⁢</mo>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <msub>
+                                  <mi>L</mi>
+                                  <mi>t</mi>
+                                </msub>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                              <mo>⁢</mo>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <mrow>
+                                  <mn>1</mn>
+                                  <mo>-</mo>
+                                  <mrow>
+                                    <mi>P</mi>
+                                    <mo>⁢</mo>
+                                    <mrow>
+                                      <mo stretchy="false">(</mo>
+                                      <mi>S</mi>
+                                      <mo stretchy="false">)</mo>
+                                    </mrow>
+                                  </mrow>
+                                </mrow>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                            </mrow>
+                            <mo>+</mo>
+                            <mrow>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <mrow>
+                                  <mn>1</mn>
+                                  <mo>-</mo>
+                                  <mrow>
+                                    <mi>P</mi>
+                                    <mo>⁢</mo>
+                                    <mrow>
+                                      <mo stretchy="false">(</mo>
+                                      <msub>
+                                        <mi>L</mi>
+                                        <mi>t</mi>
+                                      </msub>
+                                      <mo stretchy="false">)</mo>
+                                    </mrow>
+                                  </mrow>
+                                </mrow>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                              <mo>⁢</mo>
+                              <mi>P</mi>
+                              <mo>⁢</mo>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <mi>G</mi>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                            </mrow>
+                          </mrow>
+                        </mfrac>
+                      </mrow>
+                    </math></td>
+                  <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+                </tr>
+              </table>
+              <table id="S3.Ex4" class="ltx_equation ltx_eqn_table">
+
+                <tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+                  <td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+                  <td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex4.m1" class="ltx_Math" alttext="P(L_{t}|obs_{t}=incorrect)=\dfrac{P(L_{t})(P(S))}{P(L_{t})P(S)+(1-P(L_{t}))(1-%
+              P(G))}" display="block">
+                      <mrow>
+                        <mrow>
+                          <mi>P</mi>
+                          <mo>⁢</mo>
+                          <mrow>
+                            <mo stretchy="false">(</mo>
+                            <mrow>
+                              <mrow>
+                                <msub>
+                                  <mi>L</mi>
+                                  <mi>t</mi>
+                                </msub>
+                                <mo lspace="2.5pt" rspace="2.5pt" stretchy="false">|</mo>
+                                <mrow>
+                                  <mi>o</mi>
+                                  <mo>⁢</mo>
+                                  <mi>b</mi>
+                                  <mo>⁢</mo>
+                                  <msub>
+                                    <mi>s</mi>
+                                    <mi>t</mi>
+                                  </msub>
+                                </mrow>
+                              </mrow>
+                              <mo>=</mo>
+                              <mrow>
+                                <mi>i</mi>
+                                <mo>⁢</mo>
+                                <mi>n</mi>
+                                <mo>⁢</mo>
+                                <mi>c</mi>
+                                <mo>⁢</mo>
+                                <mi>o</mi>
+                                <mo>⁢</mo>
+                                <mi>r</mi>
+                                <mo>⁢</mo>
+                                <mi>r</mi>
+                                <mo>⁢</mo>
+                                <mi>e</mi>
+                                <mo>⁢</mo>
+                                <mi>c</mi>
+                                <mo>⁢</mo>
+                                <mi>t</mi>
+                              </mrow>
+                            </mrow>
+                            <mo stretchy="false">)</mo>
+                          </mrow>
+                        </mrow>
+                        <mo>=</mo>
+                        <mfrac>
+                          <mrow>
+                            <mi>P</mi>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <msub>
+                                <mi>L</mi>
+                                <mi>t</mi>
+                              </msub>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                            <mo>⁢</mo>
+                            <mrow>
+                              <mo stretchy="false">(</mo>
+                              <mrow>
+                                <mi>P</mi>
+                                <mo>⁢</mo>
+                                <mrow>
+                                  <mo stretchy="false">(</mo>
+                                  <mi>S</mi>
+                                  <mo stretchy="false">)</mo>
+                                </mrow>
+                              </mrow>
+                              <mo stretchy="false">)</mo>
+                            </mrow>
+                          </mrow>
+                          <mrow>
+                            <mrow>
+                              <mi>P</mi>
+                              <mo>⁢</mo>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <msub>
+                                  <mi>L</mi>
+                                  <mi>t</mi>
+                                </msub>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                              <mo>⁢</mo>
+                              <mi>P</mi>
+                              <mo>⁢</mo>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <mi>S</mi>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                            </mrow>
+                            <mo>+</mo>
+                            <mrow>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <mrow>
+                                  <mn>1</mn>
+                                  <mo>-</mo>
+                                  <mrow>
+                                    <mi>P</mi>
+                                    <mo>⁢</mo>
+                                    <mrow>
+                                      <mo stretchy="false">(</mo>
+                                      <msub>
+                                        <mi>L</mi>
+                                        <mi>t</mi>
+                                      </msub>
+                                      <mo stretchy="false">)</mo>
+                                    </mrow>
+                                  </mrow>
+                                </mrow>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                              <mo>⁢</mo>
+                              <mrow>
+                                <mo stretchy="false">(</mo>
+                                <mrow>
+                                  <mn>1</mn>
+                                  <mo>-</mo>
+                                  <mrow>
+                                    <mi>P</mi>
+                                    <mo>⁢</mo>
+                                    <mrow>
+                                      <mo stretchy="false">(</mo>
+                                      <mi>G</mi>
+                                      <mo stretchy="false">)</mo>
+                                    </mrow>
+                                  </mrow>
+                                </mrow>
+                                <mo stretchy="false">)</mo>
+                              </mrow>
+                            </mrow>
+                          </mrow>
+                        </mfrac>
+                      </mrow>
+                    </math></td>
+                  <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+                </tr>
+              </table>
+            </div>
+
+            <p>In our case, we will make of a Simulated learner to test the policy that is being created by the
+              Reinforcement agent and provide a reward accordingly. For our application, the Simulated learner
+              (based on BKT) has been implmented using the following assumptions:</p>
+            <ol id="S3.I7">
+              <li id="S3.I7.i1">
+                <div id="S3.I7.i1.p1">
+                  <p>In order to correctly provide the answer to a particular token in an exercise (eg: provide
+                    the correct translation of a particular word), the user needs to have a complete understanding
+                    of the token itself along with the corresponding part speech , morphological features and
+                    dependency structure of the token.</p>
+                </div>
+              </li>
+              <li id="S3.I7.i2">
+                <div id="S3.I7.i2.p1">
+                  <p>Each of the possible values of the tokens, part of speech, morphological features, dependency
+                    structure are modelled as a skill in the BKT learner.</p>
+                </div>
+              </li>
+              <li id="S3.I7.i3">
+                <div id="S3.I7.i3.p1">
+                  <p>Once the user is presented with an exercise, first the response of the user to each token in
+                    the exercise is computed based on the present skill state of the user. Once we have the
+                    generated the answers to each token (which in this case would be whether or not the user
+                    provides the correct answer to a particular token), we update the skills associated with each
+                    token on the basis of the observed value.</p>
+                </div>
+              </li>
+            </ol>
+
+
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">3.4.3 </span>Integrating a Conversation Generator
+            </h4>
+
+            <p>Once we had the core components (i.e. the Reinforcement Learning Agent and Knowledge tracing model)
+              in place, we incorporated a conversational element to language learning. At this step instead of using
+              a shared knowledge state between the simulated learner and the Reinforcement learning agent, we
+              integrated the encoder-decoder based knowledge tracing model with the Reinforcement Learning based
+              exercise scheduling agent. This allows the interactive agent to build a representation of the current
+              skill set of the user over time and select the appropriate exercises. Once the RL agent has selected a
+              particular exercise, it is fed through a Conversation Generator (that will be a Sequence to Sequence
+              Model) that will be trained to convert the given simple exercise into a more conversational question.
+              For eg. For a user learning English (using Spanish as the base language), if the RL agent indicates
+              that the exercise with the corresponding English translation as "I am not perfect" is the best, the
+              conversational agent can generate the sentence as "Can you please translate 'Yo no soy perfecto' into
+              english for me"?</p>
+
+            <figure id="S3.F6" class="ltx_figure"><img src="Images/Conversational%20Agent%20Step%202.png" id="S3.F6.g1"
+                class="ltx_graphics ltx_centering" width="541" height="136"
+                alt="End to End integration of the Conversation Generator with the scheduling Algorithm">
+              <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 6:
+                </span>End to End integration of the Conversation Generator with the scheduling Algorithm
+              </figcaption>
+            </figure>
+            <p>The conversation generator used is a Sequence-2-Sequence, pre-trained Google T5 model, that is
+              fine-tuned on the prompts and the corresponding correct answers in the Duolingo dataset.</p>
+
+            <p>The overall training approach for the RL agent along with the encoder-decoder based knowledge tracing
+              model will be the same as that mentioned in the previous section. The encoder-decoder based knowledge
+              tracing model will be pre-trained and will be frozen while training the RL agent - it will only be
+              used to generate the knowledge state vectors on the basis of the responses that are provided by the
+              simulated learners.
+            </p>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <section class="section">
+
+
+    <div class="container is-max-desktop">
+
+
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+
+          <div class="content has-text-justified">
+            <h2>
+              <span>4 </span>Implementation Details
+            </h2>
+
+            <h3>
+              <span>4.1 </span>Training Details for the Knowledge Tracing Module
+            </h3>
+
+            <div id="S4.SS1.p1">
+              <p>The knowledge model makes use of the following end-to-end algorithm for training:</p>
+              <ol id="S4.I1">
+                <li id="S4.I1.i1">
+                  <div id="S4.I1.i1.p1">
+                    <p>For a given user, we consider a randomly sampled sub-sequences of n = '256' exercises and
+                      divide it into 2 parts each with n/2 exercises. The first n/2 exercises (say set I) are used to
+                      represent the current history of the user and the rest of them (say set T) represent the
+                      exercise for which we want to predict the outcome. For each token in the set I, we extract the
+                      following features:</p>
+                    <ol id="S4.I1.i1.I1">
+                      <li id="S4.I1.i1.I1.i1">
+                        <div id="S4.I1.i1.I1.i1.p1">
+                          <p>The embeddings for each token (we make use of GloVe embedding)</p>
+                        </div>
+                      </li>
+                      <li id="S4.I1.i1.I1.i2">
+                        <div id="S4.I1.i1.I1.i2.p1">
+                          <p>We project each of the other categorical features such as (part of speech tag, dependency
+                            label of the token (in the semantic parsing of the exercise) and the label of the token
+                            (i.e. whether the user got the token correct or not)) into an embedding vector.</p>
+                        </div>
+                      </li>
+                      <li id="S4.I1.i1.I1.i3">
+                        <div id="S4.I1.i1.I1.i3.p1">
+                          <p>All the above mentioned features are concatenated to form an input for the encoder.</p>
+                        </div>
+                      </li>
+                      <li id="S4.I1.i1.I1.i4">
+                        <div id="S4.I1.i1.I1.i4.p1">
+                          <p>The encoder hidden states from all timestamps are be condensed into a single vector using
+                            Max Pooling. This vector will represent the knowledge state of the user because it has
+                            information about the exercises that have been attempted by the user as well as the labels
+                            for each token in that exercise (i.e the information about whether the user got the token
+                            correct or not).</p>
+                        </div>
+                      </li>
+                      <li id="S4.I1.i1.I1.i5">
+                        <div id="S4.I1.i1.I1.i5.p1">
+                          <p>Now, once we have a condensed representation of the knowledge state of the user, we make
+                            use of this in the decoder to predict the performance of the user on a test set of
+                            exercises (i.e. the second subset T). The input to the decoder will be similar to the
+                            encoder except that the value of the 'label' for the exercise will be provided as
+                            'unknown' (represented by the number '2' in the input since the values 0 and 1 represent
+                            the label for correct and incorrect responses respectively). The BiLSTM layers in the
+                            decoder will create a hidden representation for each token in the test set. This hidden
+                            representation at each time-step (i.e. for every token) is concatenated with the knowledge
+                            state representation (obtained from the encoder) and is then passed through an MLP network
+                            to get the final probability of the getting the token wrong.</p>
+                        </div>
+                      </li>
+                      <li id="S4.I1.i1.I1.i6">
+                        <div id="S4.I1.i1.I1.i6.p1">
+                          <p>The network is trained using the ground truth labels, for the test exercises, that are
+                            available to us in the training data.</p>
+                        </div>
+                      </li>
+                    </ol>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <p> </p>
+            <p>During inference, we make use of the history of the user, that is available to us, to create the
+              knowledge state vector (i.e. just make use of the encoder part of the network) since we are only
+              interested in the representation of the knowledge state. (Note: The knowledge state of the user will be
+              updated every time we get a response from the user for an exercise i.e. at every step of the interaction
+              between our agent and the user. This is because the history of interactions of the user will be updated
+              every time we provide a new exercise to the user and the user attempts it).</p>
+            <h3>
+
+              <span>4.2 </span>Training Details for the Reinforcement Learning Agent
+            </h3>
+
+            <div id="S4.SS2.p1">
+              <p>The training of the RL agent is done as follows:</p>
+              <ol id="S4.I2">
+                <li id="S4.I2.i1">
+                  <div id="S4.I2.i1.p1">
+                    <p>All the exercises that are present in the training set of the Duolingo dataset were collected
+                      and then subdivided into multiple contiguous chunks of alternating teaching and testing data.The
+                      user will be "taught" using the teaching set and then evaluated using the testing set.</p>
+                  </div>
+                </li>
+                <li id="S4.I2.i2">
+                  <div id="S4.I2.i2.p1">
+                    <p>One pair of contiguous teaching and testing data subsets is used by the RL agent in a single
+                      episode.</p>
+                  </div>
+                </li>
+                <li id="S4.I2.i3">
+                  <div id="S4.I2.i3.p1">
+                    <p>Before the beginning of the episode, the user is be tested on the testing subset of the data
+                      and the score/accuracy of the user of the user is recorded. Next, the RL agent starts to
+                      schedule the exercises from the teaching subset for the user (using the <math id="S4.I2.i3.p1.m1"
+                        class="ltx_Math" alttext="\epsilon" display="inline">
+                        <mi>ϵ</mi>
+                      </math> greedy policy as mentioned before). At every step, the RL agent can either select one of
+                      the exercises from the teaching subset to present to the user or it can terminate the episode.
+                    </p>
+                  </div>
+                </li>
+                <li id="S4.I2.i4">
+                  <div id="S4.I2.i4.p1">
+                    <p>Once the episode terminates the user is evaluated again on the testing subset and the accuracy
+                      will be recorded.
+                    </p>
+                  </div>
+                </li>
+                <li id="S4.I2.i5">
+                  <div id="S4.I2.i5.p1">
+                    <p>By default the RL Agent is provided a reward of "-1" for every exercise that it schedules for
+                      the user. Once the episode terminates, the reward for the RL agent is computed as the difference
+                      difference between the final accuracy and the initial accuracy on the test subset of the data.
+                      This encourages the RL agent to schedule less number of exercises for the user while still
+                      ensuring that the knowledge gain of the user is not compromised.</p>
+                  </div>
+                </li>
+                <li id="S4.I2.i6">
+                  <div id="S4.I2.i6.p1">
+                    <p>This is repeated for each pair of teaching and testing subset of exercises in the dataset.</p>
+                  </div>
+                </li>
+                <li id="S4.I2.i7">
+                  <div id="S4.I2.i7.p1">
+                    <p>At every step (i.e. every time the RL agent selects an exercise and gets a reward) the linear
+                      regression model is updated using the gradient descent update rule for Q-learning.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <h3>
+              <span>4.3 </span>T5 Training Procedure
+            </h3>
+
+
+            <p>Google's T5 pre-trained model that can be imported via HuggingFace was selected by us since it
+              provides the most flexibility in it's retraining procedure and because of the plethora of
+              documentation available for the same.
+              Where the T5 is concerned, you can specifically train it for a dialogue generation task as well;
+              which is what we want to do. This in turn would be connected to the RL agent which would be able to
+              feed it the exercises chosen by the agent.</p>
+
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">4.3.1 </span>Dataset Modification
+            </h4>
+
+            <p>The dataset needs to be formatted in a specific format, which follows a two column structure. The
+              first would be the prompt and the second would be the answer. This allows the model for a
+              customized dialogue generation task and also allows possibly allows for our Reinforcement Learning
+              agent to feed in a prompt whenever necessary.
+              In addition to this structure, we require to add a prefix into the prompt of the data, so as to
+              make the T5 understand the task. In this case, the prefix we chose was "dialogue generation: ".
+              All of this becomes more understandable when you see Figure 4 which provides a concrete example of
+              the tuned dataset. After that, the data, was simply split into train, validation and test sets.
+            </p>
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">4.3.2 </span>Preprocessing
+            </h4>
+
+
+            <p>While we did have a tuned dataset, we require a tokenizer to feed it into the model. For this
+              purpose, HuggingFace's AutoTokenizer was used. Here, the maximum input length and maximum target
+              length; which are essentially limits set on the generated sequences while training, were taken as
+              1024 and 64 respectively.</p>
+
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">4.3.3 </span>Hyperparameters
+            </h4>
+
+
+            <p>While we've already covered the input and output sequence lengths, a few ablations were required
+              to reach the following hyperparameters. The batch size was taken to be 64, weight decay 0.01, and
+              since the total dataset was quite huge, we trained it temporarily on three epochs.</p>
+
+            <figure id="S4.F7" class="ltx_figure"><img src="Images/T5-example.png" id="S4.F7.g1"
+                class="ltx_graphics ltx_centering" width="541" height="141" alt="Tuned dataset for T5">
+              <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 7:
+                </span>Tuned dataset for T5</figcaption>
+            </figure>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <section class="section">
+
+
+    <div class="container is-max-desktop">
+
+
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+
+          <div class="content has-text-justified">
+            <h2>
+              <span>5 </span>Results and Analysis
+            </h2>
+
+            <section id="S5.SS1">
+              <h3>
+                <span>5.1 </span>Knowledge Tracing
+              </h3>
+
+              <div id="S5.SS1.p1">
+                <p>For our Knowledge Tracing we achieve a validation scores 0.4246 (F1 Score) and 0.7732 (AUC-ROC) and a
+                  test scores of 0.4311 (F1 Score) , 0.77 (AUC-ROC) for the Duolingo Dataset.</p>
+              </div>
+              <figure id="S5.F8" class="ltx_figure">
+                <table style="width:100%;">
+                  <tr>
+                    <td class="ltx_subgraphics"><img src="Images/KM-AUC.png" id="S5.F8.g1"
+                        class="ltx_graphics ltx_centering" width="243" height="163"
+                        alt="AUC and F1 scores of the knowledge tracing model on the validation set"></td>
+                    <td class="ltx_subgraphics"><img src="Images/KM-F1.png" id="S5.F8.g2"
+                        class="ltx_graphics ltx_centering" width="243" height="163"
+                        alt="AUC and F1 scores of the knowledge tracing model on the validation set"></td>
+                  </tr>
+                </table>
+                <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 8: </span>AUC
+                  and F1 scores of the knowledge tracing model on the validation set</figcaption>
+              </figure>
+              <div id="S5.SS1.p2">
+                <p>The above-mentioned are results from the best performing model that we implemented. Apart from the
+                  implementation of the knowledge model mentioned above, the following are some of the experiments we
+                  tried:</p>
+                <ol id="S5.I1">
+                  <li id="S5.I1.i1">
+                    <div id="S5.I1.i1.p1">
+                      <p>Making use of multiple layers of multi-head attention instead of BiLSTM layers : This approach
+                        did not work as well as our current results possibly because of the difficulty in training
+                        multiple layers of multi-head attention based transformer blocks from scratch.</p>
+                    </div>
+                  </li>
+                  <li id="S5.I1.i2">
+                    <div id="S5.I1.i2.p1">
+                      <p>Making use of Attention to combine the final hidden states from the encoder into a single
+                        knowledge state vector (using a weighted average with the attention weights) : The results from
+                        the attention based approach were similar to the results obtained with max-pooling but we could
+                        not make use of attention in our final model since the computation of the attention requires the
+                        query vector from the decoder (i.e. the representation of the token for which we need to compute
+                        the prediction). This does not match with the requirements of the reinforcement learning agent
+                        (where we need a single representation of the knowledge state at any given time)</p>
+                    </div>
+                  </li>
+                  <li id="S5.I1.i3">
+                    <div id="S5.I1.i3.p1">
+                      <p>Making use of sum, mean pooling instead of max pooling to condense the final hidden state of
+                        the encoder into a single vector: Making use of max-pooling provided us with the best results
+                        possibly because a lot of the information in the input is contained locally and making use of
+                        max-pooling allows us to most effectively capture all the local pieces of information (as
+                        compared to mean pooling which borrows information equally from each time-step)</p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </section>
+            <h3>
+              <span>5.2 </span>Reinforcement Learning Agent
+            </h3>
+
+            <figure id="S5.F9" class="ltx_figure">
+              <table style="width:100%;">
+                <tr>
+                  <td class="ltx_subgraphics"><img src="Images/RL%20Before.png" id="S5.F9.g1"
+                      class="ltx_graphics ltx_centering" width="243" height="163"
+                      alt="The cumulative score of our baseline RL model against our model"></td>
+                  <td class="ltx_subgraphics"><img src="Images/RL_After.png" id="S5.F9.g2"
+                      class="ltx_graphics ltx_centering" width="243" height="163"
+                      alt="The cumulative score of our baseline RL model against our model"></td>
+                </tr>
+              </table>
+              <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 9: </span>The
+                cumulative score of our baseline RL model against our model</figcaption>
+            </figure>
+            <div id="S5.SS2.p1">
+              <p>The baseline reinforcement learning agent requires approximately 1500 timesteps to reach saturation.
+              </p>
+            </div>
+            <div id="S5.SS2.p2">
+              <p>In contrast, our reinforcement learning module achieves saturation at a greater cumulative reward with
+                merely 300 samples when the knowledge state is provided, and around 500 timesteps when the knowledge
+                state is absent.</p>
+            </div>
+            <div id="S5.SS2.p3">
+              <p>By surpassing the baseline approach in both cumulative reward and sample efficiency, our Q-learning
+                based reinforcement learning agent demonstrates superior performance.</p>
+            </div>
+            <h3>
+              <span>5.3 </span>Analysis
+            </h3>
+
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">5.3.1 </span>Knowledge Tracing
+            </h4>
+
+            <p>Our knowledge tracing model performs slightly below the baseline models. This may be due to the fact that
+              we exclude exercise format and userId features which do not occur in day-to-day conversations, but are
+              included in the baseline models which are specific to Duolingo exercises.</p>
+            <p>Secondly, in order to input the entire state into our reinforcement learning agent we also compress the
+              user’s knowledge state into one single vector, unlike top-performing baselines which do not use RL agents.
+            </p>
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">5.3.2 </span>Reinforcement Learning
+            </h4>
+
+            <p>A plausible explanation for the improved performance of our RL agent over random strategy could be that
+              the agent comprehends the relationship between the knowledge state and the sentence-bert embeddings
+              generated for each conversation. This understanding enables the RL agent to optimise its selections of
+              conversation, focusing on the sentences that best enhance the knowledge state.</p>
+
+            <h2>
+              <span>6 </span>Conclusion and Future Work
+            </h2>
+
+            <p>Given that Reinforcement Learning performed better than random policy (saturating at around 300
+              episodes), we can conclude that it is possible to integrate with an online knowledge tracing model to
+              better select exercises and improve user learning. This successful proof of concept for a reinforcement
+              learning agent combined with knowledge tracing provides foundation for a multitude of future works. This
+              agent could be fine tuned for more superior performance, and more naturally integrated into a second
+              language acquisition system. Further, we believe that this technique could be used for a variety of tasks
+              beyond just second language acquisition. Any online learning method which can track the known and unknown
+              knowledge from the target knowledge task can benefit from this approach.</p>
+            <p>Our immediate future work goals are to deeply analyze the RL policy that has been learned by our agent.
+              This will help us further tune and engineer our solution; and possibly better structure future datasets
+              for similar tasks. We would also like to explore different reward strategies for the RL agent in-order to
+              prioritize different exercise selection strategies (such as making sure that there is a balance between
+              unknown and known concepts in the exercises that are selected by the agent). In addition, generalizing to
+              any broad task with a structured dataset would be challenging. Using a generative model to generalize the
+              RL agent to any task could greatly improve the learning experience that results from this method. A
+              generative model that integrates with a knowledge tracing model and RL agent such as ours would be a great
+              further application of our research.</p>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="section">
+
+
+    <div class="container is-max-desktop">
+
+
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+
+          <div class="content has-text-justified">
+
+            <section id="bib" class="ltx_bibliography">
+
+
+              <h2 class="ltx_title ltx_title_bibliography">References</h2>
+
+              <ul id="bib.L1" class="ltx_biblist">
+                <li id="bib.bib1" class="ltx_bibitem ltx_bib_inproceedings">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[1]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">J. Bassen, B. Balaji, M.
+                      Schaarschmidt, C. Thille, J. Painter, D. Zimmaro, A. Games, E. Fast, and J. C.
+                      Mitchell</span><span class="ltx_text ltx_bib_year"> (2020)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">How to train your learners:
+                      reinforcement learning for the scheduling of online learning activities</span>.
+                  </span>
+                  <span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">CHI 2020</span>,
+                  </span>
+                  <span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><a
+                        href="https://www.amazon.science/publications/how-to-train-your-learners-reinforcement-learning-for-the-scheduling-of-online-learning-activities"
+                        title="" class="ltx_ref ltx_bib_external">Link</a></span>
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#A1.SS1.SSS3.p2"
+                      title="A.1.3 RL based Conversational Agent for language learning ‣ A.1 Knowledge Tracing ‣ Appendix A Baseline Models ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§A.1.3</span></a>,
+                    <a href="#S2.SS1.p5"
+                      title="2.1 Knowledge Tracing (KT): ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.1</span></a>,
+                    <a href="#S2.SS2.p2"
+                      title="2.2 Conversational Agent ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.2</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib4" class="ltx_bibitem ltx_bib_article">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[2]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">V. Bellini, A. Schiavone, T. Di Noia,
+                      A. Ragone, and E. Di Sciascio</span><span class="ltx_text ltx_bib_year"> (2018)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Computing recommendations via a
+                      knowledge graph-aware autoencoder</span>.
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">arXiv preprint
+                      arXiv:1807.05006</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS1.p2"
+                      title="2.1 Knowledge Tracing (KT): ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.1</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib25" class="ltx_bibitem ltx_bib_article">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[3]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">A. T. Corbett and J. R.
+                      Anderson</span><span class="ltx_text ltx_bib_year"> (2005)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Knowledge tracing: modeling the
+                      acquisition of procedural knowledge</span>.
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">User Modeling and User-Adapted
+                      Interaction</span> <span class="ltx_text ltx_bib_volume">4</span>, <span
+                      class="ltx_text ltx_bib_pages"> pp. 253–278</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS1.p5"
+                      title="2.1 Knowledge Tracing (KT): ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.1</span></a>,
+                    <a href="#S3.SS4.SSS2.p1"
+                      title="3.4.2 Reinforcement Learning and Simulated Learners ‣ 3.4 Conversational Agent ‣ 3 Model Architecture ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§3.4.2</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib26" class="ltx_bibitem ltx_bib_misc">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[4]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">D. et al</span><span
+                      class="ltx_text ltx_bib_year"> (2023-01)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span
+                      class="ltx_text ltx_bib_title">Https://github.com/deigant1998/introtodeeplearning11785project</span>.
+                  </span>
+                  <span class="ltx_bibblock"> <span class="ltx_text ltx_bib_publisher">GitHub</span>.
+                  </span>
+                  <span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><span
+                        class="ltx_ref ltx_bib_external ltx_ref_self">Link</span></span>
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#thesubsubsubsection-at-IDc"
+                      title="A.5.2 Conversational Agent ‣ A.5.1 Knowledge Tracing ‣ A.5 Baseline Implementations ‣ Appendix A Baseline Models ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§A.5.2</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib29" class="ltx_bibitem ltx_bib_misc">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[5]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">S. Fujimoto, H. van Hoof, and D.
+                      Meger</span><span class="ltx_text ltx_bib_year"> (2018)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Addressing function approximation
+                      error in actor-critic methods</span>.
+                  </span>
+                  <span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><span
+                        class="ltx_text ltx_bib_external">1802.09477</span></span>
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS2.p3"
+                      title="2.2 Conversational Agent ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.2</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib19" class="ltx_bibitem ltx_bib_article">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[6]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">G. Ke, Q. Meng, T. Finley, T. Wang,
+                      W. Chen, W. Ma, Q. Ye, and T. Liu</span><span class="ltx_text ltx_bib_year"> (2017)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Lightgbm: a highly efficient gradient
+                      boosting decision tree</span>.
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">Advances in neural information
+                      processing systems</span> <span class="ltx_text ltx_bib_volume">30</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS1.p4"
+                      title="2.1 Knowledge Tracing (KT): ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.1</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib23" class="ltx_bibitem ltx_bib_misc">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[7]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">Kostis</span><span
+                      class="ltx_text ltx_bib_year"> (2020-09)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Deep learning for second language
+                      acquisition modeling (https://github.com/kostis-s-z/dl_4_slam)</span>.
+                  </span>
+                  <span class="ltx_bibblock"> <span class="ltx_text ltx_bib_publisher">GitHub</span>.
+                  </span>
+                  <span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><a
+                        href="https://github.com/Kostis-S-Z/DL%5C_4%5C_SLAM" title=""
+                        class="ltx_ref ltx_bib_external">Link</a></span>
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#A1.SS1.SSS1.p1"
+                      title="A.1.1 LSTM ‣ A.1 Knowledge Tracing ‣ Appendix A Baseline Models ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§A.1.1</span></a>,
+                    <a href="#thesubsubsubsection-at-ID"
+                      title="A.5.1 Knowledge Tracing ‣ A.5 Baseline Implementations ‣ Appendix A Baseline Models ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§A.5.1</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib28" class="ltx_bibitem ltx_bib_misc">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[8]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">T. P. Lillicrap, J. J. Hunt, A.
+                      Pritzel, N. Heess, T. Erez, Y. Tassa, D. Silver, and D. Wierstra</span><span
+                      class="ltx_text ltx_bib_year"> (2019)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Continuous control with deep
+                      reinforcement learning</span>.
+                  </span>
+                  <span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><span
+                        class="ltx_text ltx_bib_external">1509.02971</span></span>
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS2.p3"
+                      title="2.2 Conversational Agent ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.2</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib11" class="ltx_bibitem ltx_bib_inproceedings">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[9]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">H. Nakagawa, Y. Iwasawa, and Y.
+                      Matsuo</span><span class="ltx_text ltx_bib_year"> (2019)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Graph-based knowledge tracing:
+                      modeling student proficiency using graph neural network</span>.
+                  </span>
+                  <span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">IEEE/WIC/ACM International
+                      Conference on Web Intelligence</span>,
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_pages"> pp. 156–163</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#A1.SS1.p1"
+                      title="A.1 Knowledge Tracing ‣ Appendix A Baseline Models ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§A.1</span></a>,
+                    <a href="#S2.SS1.p1"
+                      title="2.1 Knowledge Tracing (KT): ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.1</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib22" class="ltx_bibitem ltx_bib_misc">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[10]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">N. Nayak</span><span
+                      class="ltx_text ltx_bib_year"> (2022-05)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Context based approach for second
+                      language acquisition (https://github.com/nihalnayak/slam18)</span>.
+                  </span>
+                  <span class="ltx_bibblock"> <span class="ltx_text ltx_bib_publisher">GitHub</span>.
+                  </span>
+                  <span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><a
+                        href="https://github.com/nihalnayak/slam18" title=""
+                        class="ltx_ref ltx_bib_external">Link</a></span>
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#A1.SS1.SSS2.p1"
+                      title="A.1.2 Augmented Logistic Regression ‣ A.1 Knowledge Tracing ‣ Appendix A Baseline Models ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§A.1.2</span></a>,
+                    <a href="#thesubsubsubsection-at-IDa"
+                      title="A.5.1 Knowledge Tracing ‣ A.5 Baseline Implementations ‣ Appendix A Baseline Models ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§A.5.1</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib18" class="ltx_bibitem ltx_bib_article">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[11]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">A. Osika, S. Nilsson, A. Sydorchuk,
+                      F. Sahin, and A. Huss</span><span class="ltx_text ltx_bib_year"> (2018)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Second language acquisition modeling:
+                      an ensemble approach</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS1.p4"
+                      title="2.1 Knowledge Tracing (KT): ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.1</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib10" class="ltx_bibitem ltx_bib_article">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[12]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">S. Pandey and G. Karypis</span><span
+                      class="ltx_text ltx_bib_year"> (2019)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">A self-attentive model for knowledge
+                      tracing</span>.
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">arXiv preprint
+                      arXiv:1907.06837</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS1.p1"
+                      title="2.1 Knowledge Tracing (KT): ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.1</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib31" class="ltx_bibitem ltx_bib_inproceedings">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[13]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">J. Pennington, R. Socher, and C. D.
+                      Manning</span><span class="ltx_text ltx_bib_year"> (2014)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Glove: global vectors for word
+                      representation</span>.
+                  </span>
+                  <span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">Proceedings of the 2014 conference
+                      on empirical methods in natural language processing (EMNLP)</span>,
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_pages"> pp. 1532–1543</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#A1.SS1.SSS1.p1"
+                      title="A.1.1 LSTM ‣ A.1 Knowledge Tracing ‣ Appendix A Baseline Models ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§A.1.1</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib3" class="ltx_bibitem ltx_bib_article">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[14]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">C. Piech, J. Bassen, J. Huang, S.
+                      Ganguli, M. Sahami, L. J. Guibas, and J. Sohl-Dickstein</span><span class="ltx_text ltx_bib_year">
+                      (2015)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Deep knowledge tracing</span>.
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">Advances in neural information
+                      processing systems</span> <span class="ltx_text ltx_bib_volume">28</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS1.p1"
+                      title="2.1 Knowledge Tracing (KT): ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.1</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib2" class="ltx_bibitem ltx_bib_inproceedings">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[15]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">S. Ruan, L. Jiang, Q. Xu, Z. Liu, G.
+                      M. Davis, E. Brunskill, and J. A. Landay</span><span class="ltx_text ltx_bib_year"> (2021)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Englishbot: an ai-powered
+                      conversational system for second language learning</span>.
+                  </span>
+                  <span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">26th international conference on
+                      intelligent user interfaces</span>,
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_pages"> pp. 434–444</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS2.p1"
+                      title="2.2 Conversational Agent ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.2</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib27" class="ltx_bibitem ltx_bib_misc">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[16]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">J. Schulman, S. Levine, P. Moritz, M.
+                      I. Jordan, and P. Abbeel</span><span class="ltx_text ltx_bib_year"> (2017)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Trust region policy
+                      optimization</span>.
+                  </span>
+                  <span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><span
+                        class="ltx_text ltx_bib_external">1502.05477</span></span>
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS2.p3"
+                      title="2.2 Conversational Agent ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.2</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib13" class="ltx_bibitem ltx_bib_article">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[17]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">J. Schulman, F. Wolski, P. Dhariwal,
+                      A. Radford, and O. Klimov</span><span class="ltx_text ltx_bib_year"> (2017)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Proximal policy optimization
+                      algorithms</span>.
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">arXiv preprint
+                      arXiv:1707.06347</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS2.p3"
+                      title="2.2 Conversational Agent ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.2</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib8" class="ltx_bibitem ltx_bib_inproceedings">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[18]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">B. Settles, C. Brust, E. Gustafson,
+                      M. Hagiwara, and N. Madnani</span><span class="ltx_text ltx_bib_year"> (2018)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Second language acquisition
+                      modeling</span>.
+                  </span>
+                  <span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">Proceedings of the thirteenth
+                      workshop on innovative use of NLP for building educational applications</span>,
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_pages"> pp. 56–65</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S3.F2"
+                      title="Figure 2 ‣ item 1 ‣ 3.2 Dataset Description ‣ 3 Model Architecture ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">Figure 2</span></a>,
+                    <a href="#S3.SS2.p1"
+                      title="3.2 Dataset Description ‣ 3 Model Architecture ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§3.2</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib12" class="ltx_bibitem ltx_bib_article">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[19]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">X. Song, J. Li, Q. Lei, W. Zhao, Y.
+                      Chen, and A. Mian</span><span class="ltx_text ltx_bib_year"> (2022)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Bi-clkt: bi-graph contrastive learning
+                      based knowledge tracing</span>.
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">Knowledge-Based Systems</span> <span
+                      class="ltx_text ltx_bib_volume">241</span>, <span class="ltx_text ltx_bib_pages">
+                      pp. 108274</span>.
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS1.p1"
+                      title="2.1 Knowledge Tracing (KT): ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.1</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib20" class="ltx_bibitem ltx_bib_misc">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[20]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">T. Wang, X. Bao, I. Clavera, J.
+                      Hoang, Y. Wen, E. Langlois, S. Zhang, G. Zhang, P. Abbeel, and J. Ba</span><span
+                      class="ltx_text ltx_bib_year"> (2019)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Benchmarking model-based reinforcement
+                      learning</span>.
+                  </span>
+                  <span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><span
+                        class="ltx_text ltx_bib_external">1907.02057</span></span>
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS2.p3"
+                      title="2.2 Conversational Agent ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.2</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib24" class="ltx_bibitem ltx_bib_inproceedings">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[21]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">M. V. Yudelson, K. R. Koedinger, and
+                      G. J. Gordon</span><span class="ltx_text ltx_bib_year"> (2013)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Individualized bayesian knowledge
+                      tracing models</span>.
+                  </span>
+                  <span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">Artificial Intelligence in
+                      Education</span>, <span class="ltx_text ltx_bib_editor">H. C. Lane, K. Yacef, J. Mostow, and P.
+                      Pavlik (Eds.)</span>,
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_place">Berlin, Heidelberg</span>, <span
+                      class="ltx_text ltx_bib_pages"> pp. 171–180</span>.
+                  </span>
+                  <span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><span
+                        class="ltx_text isbn ltx_bib_external">ISBN 978-3-642-39112-5</span></span>
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS1.p5"
+                      title="2.1 Knowledge Tracing (KT): ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.1</span></a>.
+                  </span>
+                </li>
+                <li id="bib.bib16" class="ltx_bibitem ltx_bib_article">
+                  <span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[22]</span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">Z. Zhang, F. Zhuang, H. Zhu, Z. Shi,
+                      H. Xiong, and Q. He</span><span class="ltx_text ltx_bib_year"> (2020-Apr.)</span>
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Relational graph neural network with
+                      hierarchical attention for knowledge graph completion</span>.
+                  </span>
+                  <span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">Proceedings of the AAAI Conference
+                      on Artificial Intelligence</span> <span class="ltx_text ltx_bib_volume">34</span> (<span
+                      class="ltx_text ltx_bib_number">05</span>), <span class="ltx_text ltx_bib_pages">
+                      pp. 9612–9619</span>.
+                  </span>
+                  <span class="ltx_bibblock">External Links: <span class="ltx_text ltx_bib_links"><a
+                        href="https://ojs.aaai.org/index.php/AAAI/article/view/6508" title=""
+                        class="ltx_ref ltx_bib_external">Link</a>,
+                      <a href="https://dx.doi.org/10.1609/aaai.v34i05.6508" title=""
+                        class="ltx_ref doi ltx_bib_external">Document</a></span>
+                  </span>
+                  <span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.SS1.p3"
+                      title="2.1 Knowledge Tracing (KT): ‣ 2 Related Work ‣ CoACH: Conversational Agent for curating Human language Learning"
+                      class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2.1</span></a>.
+                  </span>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+    </div>
+  </section>
+
+
+  <section class="section">
+
+
+    <div class="container is-max-desktop">
+
+
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+
+          <div class="content has-text-justified">
+
+            <h2 class="ltx_title ltx_title_appendix">Appendix</h2>
+
+            <h2 class="ltx_title ltx_title_appendix">
+              <span class="ltx_tag ltx_tag_appendix">Appendix A </span>Baseline Models
+            </h2>
+            <p>The approach described in this project is quite novel and hence there wasn’t any particular baseline
+              that emulated what we intended to do on an end to end basis. For the purposes of reaching current
+              performance metrics of the baselines models corresponding to the individual components (i.e. the
+              knowledge tracing model and the RL based conversational agent), we implemented different sections of
+              the proposed solution separately.</p>
+            <h3>
+              <span>A.1 </span>Knowledge Tracing
+            </h3>
+
+            <p>Most recently, Graph Neural Networks have been seen to perform better in knowledge tracing<cite
+                class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib11"
+                  title="Graph-based knowledge tracing: modeling student proficiency using graph neural network"
+                  class="ltx_ref">9</a>]</cite>; however, given our dataset, we do not have any graph oriented
+              elements (on a superficial level). We’re not inherently provided the skill-set required for each
+              exercise which could be represented in a graph structure.</p>
+            <p>That said, we reviewed the winning solutions of the SLAM challenge conducted by Duolingo and saw
+              that the first place solution was an ensemble between an RNN and a Gradient Boosted Decision Tree,
+              which yielded them an AUC Score of 0.861 and an F1 score of 0.561.
+              Hence, we chose this approach as our baseline for Knowledge Modelling and tried implementing various
+              architectures based on that.</p>
+            <p>The following were the solutions that provided us with the most accurate results:</p>
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">A.1.1 </span>LSTM
+            </h4>
+
+            <p>We did manage to execute an LSTM architecture which was inspired by the work of <cite
+                class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib23"
+                  title="Deep learning for second language acquisition modeling (https://github.com/kostis-s-z/dl_4_slam)"
+                  class="ltx_ref">7</a>]</cite>. They used GloVe <cite class="ltx_cite ltx_citemacro_cite">[<a
+                  href="#bib.bib31" title="Glove: global vectors for word representation" class="ltx_ref">13</a>]</cite>
+              for creating the embedding of the tokens (words). In order to
+              predict the label of a particular token in an exercise, they took into account the previous 50
+              tokens from the exercises that were solved by the user as context. This data was fed into a Simple
+              LSTM to predict the labels for each token. The ablation details of the same have been provided
+              below in section 5.</p>
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">A.1.2 </span>Augmented Logistic Regression
+            </h4>
+
+            <p>We also found an interesting approach by <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib22"
+                  title="Context based approach for second language acquisition (https://github.com/nihalnayak/slam18)"
+                  class="ltx_ref">10</a>]</cite> which made use of the baseline Logistic Regression provided by
+              Duolingo, but augmented it by taking into account the encoded featurs of the token preceding the
+              current token(that has to be predicted). It was surprising that just taking one timestep’s worth
+              of context without any loss of information provided such a significant boost. The results and
+              ablations of this implementation can be seen in section 5.</p>
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">A.1.3 </span>RL based Conversational Agent for language
+              learning
+            </h4>
+
+            <p>We propose using a Reinforcement Learning Agent that, based on the knowledge tracing results of
+              the user, will suggest the next exercises to learn for that particular user; thus making the whole
+              learning experience more personalized. As far as the work is concerned we understand that it is
+              very essential to have a sample-efficient policy optimization to ensure the model provides
+              reasonable performance within small number of user inputs. In the case of language learning this
+              is even more important given the fact that the user’s learned state will continuously change on
+              interacting with new learning modules. And hence, for a given state we will have very few data
+              samples, at max the number of users who interact with the model.</p>
+            <p>As per our best knowledge there is no work that is using Reinforcement learning for language
+              learning task on this particular dataset. Bassen et. al. <cite class="ltx_cite ltx_citemacro_cite">[<a
+                  href="#bib.bib1"
+                  title="How to train your learners: reinforcement learning for the scheduling of online learning activities"
+                  class="ltx_ref">1</a>]</cite> use Reinforcement learning scheduler for learning linear
+              algebra.</p>
+            <p>Since we don’t have an existing baseline for the RL based exercise selection, we have implemented
+              a random policy agent; which out of the all the given exercises in the Duolingo dataset - randomly
+              divides it into multiple teaching and testing subset pairs and then tests that policy against a
+              simulated BKT based learner. The results for that can be seen in the next section.</p>
+            <p>Here are the links of a selected subset of the ablations that we’ve run for this project (along
+              with a short description for the same):</p>
+            <h3>
+              <span>A.2 </span>LSTM Ablations:
+            </h3>
+
+            <h4>
+              <span class="ltx_tag ltx_tag_subsubsection">A.2.1 </span>200 epochs
+            </h4>
+
+            <p>This shows the ablation for LSTM that ran for 200 epochs and provided us with really good
+              insights going forward:
+              <a href="https://wandb.ai/idl-s23/DL_4_SLAM-starter_code/runs/d8lu5p8p?workspace=user-vinayn" title=""
+                class="ltx_ref ltx_url ltx_font_typewriter">https://wandb.ai/idl-s23/DL_4_SLAM-starter_code/runs/d8lu5p8p?workspace=user-vinayn</a>
+            </p>
+              <h4>
+                <span class="ltx_tag ltx_tag_subsubsection">A.2.2 </span>50 epochs
+              </h4>
+
+                <p>This shows the ablation for LSTM that ran for 50 epochs which provided us with the best results
+                  by far, esepcially where the F1 score was concerned:
+                  <a href="https://wandb.ai/idl-s23/BaseLine%20Ablations/runs/m5l9b71x?workspace=user-vinayn" title=""
+                    class="ltx_ref ltx_url ltx_font_typewriter">https://wandb.ai/idl-s23/BaseLine%20Ablations/runs/m5l9b71x?workspace=user-vinayn</a>
+                </p>
+              <h3>
+                <span>A.3 </span>Augmented Logistic Regression
+              </h3>
+
+                <h4>
+                  <span class="ltx_tag ltx_tag_subsubsection">A.3.1 </span>60 epochs
+                </h4>
+                  <p>This shows the ablation for the augmented Logistic Regression Model that ran for 60 epochs. This
+                    was the one that gave us best results for AUC Score:
+                    <a href="https://wandb.ai/idl-s23/BaseLine%20Ablations/runs/cehsz55d?workspace=user-vinayn" title=""
+                      class="ltx_ref ltx_url ltx_font_typewriter">https://wandb.ai/idl-s23/BaseLine%20Ablations/runs/cehsz55d?workspace=user-vinayn</a>
+                  </p>
+                <h4>
+                  <span class="ltx_tag ltx_tag_subsubsection">A.3.2 </span>30 epochs
+                </h4>
+
+                  <p>This shows the ablation for the augmented Logistic Regression Model that ran for 30 epochs.
+                    Although we ran it with different hyperparameters, the performance was similar to the one with 60
+                    epochs:
+                    <a href="https://wandb.ai/idl-s23/BaseLine%20Ablations/runs/o6yu27j3?workspace=user-vinayn" title=""
+                      class="ltx_ref ltx_url ltx_font_typewriter">https://wandb.ai/idl-s23/BaseLine%20Ablations/runs/o6yu27j3?workspace=user-vinayn</a>
+                  </p>
+              <h3>
+                <span>A.4 </span>Conversational Agent
+              </h3>
+
+                <h4>
+                  <span class="ltx_tag ltx_tag_subsubsection">A.4.1 </span>3500 subsets
+                </h4>
+
+                  <p>This shows the ablation for the BKT (Bayesian Knowledge Tracing) Simulated Learner. The training
+                    subset was of size 50 and that of testing was of size 20. Computed on the basis of all the
+                    training subsets played to the user. The X-axis is the total number of training subsets played to
+                    the user:
+                    <a href="https://wandb.ai/idl-s23/BaseLine%20Ablations/runs/o6yu27j3?workspace=user-vinayn" title=""
+                      class="ltx_ref ltx_url ltx_font_typewriter">https://wandb.ai/idl-s23/BaseLine%20Ablations/runs/o6yu27j3?workspace=user-vinayn</a>
+                  </p>
+              <h3>
+                <span>A.5 </span>Baseline Implementations
+              </h3>
+
+              <p>As mentioned before, we have two major subsections of the proposed solution:</p>
+              <h4>
+                <span class="ltx_tag ltx_tag_subsubsection">A.5.1 </span>Knowledge Tracing
+              </h4>
+
+              <h5 class="ltx_title ltx_title_subsubsubsection">LSTM</h5>
+              The LSTM baseline we implemented was based on the model and code referenced in Julia et. al. <cite
+                class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib23"
+                  title="Deep learning for second language acquisition modeling (https://github.com/kostis-s-z/dl_4_slam)"
+                  class="ltx_ref">7</a>]</cite>. Their implementation involved taking GloVe embeddings of the tokens
+              and loading it in the form of chunks.
+              In this implementation, the LSTM takes into account 50 previous timesteps as context of that word and
+              predicts the output label at the last timestamp.
+              However, the entire dataset’s embeddings couldn’t be fed due to memory constraints and hence we ended
+              up splitting the data into chunks of data; for both training and testing purposes.
+
+              <figure id="A1.F10" class="ltx_figure">
+                <table style="width:100%;">
+                  <tr>
+                    <td class="ltx_subgraphics"><img src="Images/LSTM_Val_Acc_smooth.png" id="A1.F10.g1"
+                        class="ltx_graphics ltx_centering" width="243" height="163"
+                        alt="Training curves for LSTM network - The top two were run for 200 epochs while the bottom two were those ablations that were run for 50">
+                    </td>
+                    <td class="ltx_subgraphics"><img src="Images/LSTM%20Train__Loss_200.png" id="A1.F10.g2"
+                        class="ltx_graphics ltx_centering" width="243" height="163"
+                        alt="Training curves for LSTM network - The top two were run for 200 epochs while the bottom two were those ablations that were run for 50">
+                    </td>
+                    <td class="ltx_subgraphics"><img src="Images/LSTM_Val_Acc_50.png" id="A1.F10.g3"
+                        class="ltx_graphics ltx_centering" width="243" height="163"
+                        alt="Training curves for LSTM network - The top two were run for 200 epochs while the bottom two were those ablations that were run for 50">
+                    </td>
+                    <td class="ltx_subgraphics"><img src="Images/LSTM_Train_Loss_50.png" id="A1.F10.g4"
+                        class="ltx_graphics ltx_centering" width="243" height="163"
+                        alt="Training curves for LSTM network - The top two were run for 200 epochs while the bottom two were those ablations that were run for 50">
+                    </td>
+                  </tr>
+                </table>
+                <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 10:
+                  </span>Training curves for LSTM network - The top two were run for 200 epochs while the bottom two
+                  were those ablations that were run for 50</figcaption>
+              </figure>
+              <h6 class="ltx_title ltx_title_subsubsubsection">Augmented Logistic Regression</h6>
+              As opposed to the LSTM method mentioned above, the Logistic Regression method inspired by Nihal V.
+              Nayak et. al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib22"
+                  title="Context based approach for second language acquisition (https://github.com/nihalnayak/slam18)"
+                  class="ltx_ref">10</a>]</cite>doesn’t convert the words into embeddings. Instead, it hard-codes
+              the one-hot encodings of each word while feeding it into the model.
+              That said, it also takes into account the features of it’s previous timestep while processing. The
+              only difference between their model and the baseline model is the fact that they take into account the
+              previous state of the input which resulted in a significant boost of performance as compared to the
+              original baseline of the competition.
+
+              <figure id="A1.F11" class="ltx_figure">
+                <table style="width:100%;">
+                  <tr>
+                    <td class="ltx_subgraphics"><img src="Images/Logistic%20regression%20AUC.png" id="A1.F11.g1"
+                        class="ltx_graphics ltx_centering"
+                        alt="Training Curves for the Augmented Logistic Regression Model"></td>
+                    <td class="ltx_subgraphics"><img src="Images/Logistic_LogLoss.png" id="A1.F11.g2"
+                        class="ltx_graphics ltx_centering" width="243" height="163"
+                        alt="Training Curves for the Augmented Logistic Regression Model"></td>
+                  </tr>
+                </table>
+                <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11:
+                  </span>Training Curves for the Augmented Logistic Regression Model</figcaption>
+              </figure>
+              <h6 class="ltx_title ltx_title_subsubsubsection">Light Gradient Boosted Decision Tree</h6>
+              Current state of the art knowledge tracing models ensemble multiple classifiers to maximize knowledge
+              tracing performance. The most effective ensemble method integrated a Light Gradient Boosted Decision
+              Tree as an additional knowledge tracing model. We implemented a Decision Tree following the methods
+              and architecture implemented by Osika et al., which achieved the best performance in the 2018 Duolingo
+              SLAM competition.
+              The Decision tree implemented by Osika et al. required additional feature engineering beyond the
+              baseline features provided by duolingo in the dataset. Further engineering allows for extracting
+              additional features including the number of times the user has previously seen the token, where the
+              token is in the sequence, and how long it has been since the user has last seen the specific token.
+              These additional features reportedly allowed for significantly higher performance by the developers in
+              Osika et al. Surprisingly, our replications of this model actually performed worse with those
+              additionally engineered features than without. Lack of specificity in the referenced paper prevented
+              us from being able to determine what differences in our feature representation resulted in such a
+              large gap in performance.
+              The architecture reported by Osika et al. contained 2400 leaves, 3203 estimators, a learning rate of
+              0.005, and 40% feature fraction use for splitting. We used this same architecture, but got better
+              performance without the additional features. The performance is reported below.
+
+              <figure id="A1.T1" class="ltx_table">
+                <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 1:
+                  </span>Results from Baseline Ablations</figcaption>
+                <table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle">
+                  <thead class="ltx_thead">
+                    <tr class="ltx_tr">
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_tt ltx_border_t">
+                        Model</th>
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_tt ltx_border_t">
+                        Epochs</th>
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_tt">AUC-ROC</th>
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_tt">F1 Score</th>
+                    </tr>
+                  </thead>
+                  <tbody class="ltx_tbody">
+                    <tr class="ltx_tr">
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t">LSTM</th>
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t">40</th>
+                      <td class="ltx_td ltx_align_left ltx_border_t">0.751695</td>
+                      <td class="ltx_td ltx_align_left ltx_border_t">0.389982</td>
+                    </tr>
+                    <tr class="ltx_tr">
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_row">Logistic Regression</th>
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_row">60</th>
+                      <td class="ltx_td ltx_align_left">0.818203</td>
+                      <td class="ltx_td ltx_align_left">0.354804</td>
+                    </tr>
+                    <tr class="ltx_tr">
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_row">LGBM</th>
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_row">N/A</th>
+                      <td class="ltx_td ltx_align_left">0.6127</td>
+                      <td class="ltx_td ltx_align_left">0.35785</td>
+                    </tr>
+                    <tr class="ltx_tr">
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb">LGBM (Additionally
+                        Engineered Features)</th>
+                      <th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb">N/A</th>
+                      <td class="ltx_td ltx_align_left ltx_border_bb">0.539419</td>
+                      <td class="ltx_td ltx_align_left ltx_border_bb">0.151575</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+
+              <section id="A1.SS5.SSS2" class="ltx_subsubsection">
+                <h4>
+                  <span class="ltx_tag ltx_tag_subsubsection">A.5.2 </span>Conversational Agent
+                </h4>
+
+                <h5 class="ltx_title ltx_title_subsubsubsection">Results of a random policy for exercise selection
+                </h5>
+                In-order to establish a baseline for the RL based exercise selection agent, we created a random
+                policy and evaluated it against a BKT based Simulated Learner <cite
+                  class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib26"
+                    title="Https://github.com/deigant1998/introtodeeplearning11785project"
+                    class="ltx_ref">4</a>]</cite>. The following graph shows the cumulative rewards of the random
+                policy :
+
+                <figure id="A1.F12" class="ltx_figure"><img src="Images/RL_Random_Policy.png" id="A1.F12.g1"
+                    class="ltx_graphics ltx_centering" width="541" height="238"
+                    alt="Cumulative reward for a random policy">
+                  <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 12:
+                    </span>Cumulative reward for a random policy</figcaption>
+                </figure>
+                
+                <p>In-order to perform the above test, we divided the dataset into pairs of teaching and
+                testing subsets containing 50 and 20 exercises each respectively. From the above cumulative graph
+                curve, we can see that it takes about 2000 teaching batches/data subsets for the BKT learner to
+                achieve mastery for all the content that is present in the Duolingo dataset.
+              </p>
+                <h6 class="ltx_title ltx_title_subsubsubsection">Sample efficient reinforcement learning</h6>
+                We ran ablations of sample-efficient RL policy optimizations on a toy-playground of OpenAI-Gym, with
+                the playground "Pendulum-v1". We use actor critique method for policy update. We compare the
+                actor-critique method sample-efficiency of Vanilla policy gradient, PPO, TRPO, TD3, behavior cloning
+                and DDPG. We observe that PPO, TD3 and behaviour cloning provide much better sample efficiency over
+                Vanilla policy gradient.
+
+                <figure id="A1.F13" class="ltx_figure"><img src="Images/RL_REWARD_TD3_BC_AC.png" id="A1.F13.g1"
+                    class="ltx_graphics ltx_centering" width="374" height="173"
+                    alt="Reward vs No. of steps for different policy optimization techniques(Actor critic-TD3, Actor-Critic DDPG, Vanilla Actor-Critic) ">
+                  <figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 13:
+                    </span>Reward vs No. of steps for different policy optimization techniques(Actor critic-TD3,
+                    Actor-Critic DDPG, Vanilla Actor-Critic) </figcaption>
+                </figure>
+              <div class="ltx_pagination ltx_role_newpage"></div>
+       </section>
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+  </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
