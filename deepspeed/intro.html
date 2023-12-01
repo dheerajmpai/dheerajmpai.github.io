@@ -1,0 +1,15 @@
+Large language models have taken the world by storm, marking a transformative era in the field of artificial intelligence. 
+Models like GPT-4, LLaMA, and Mistral, with their multi-billion parameter designs, have set new benchmarks in natural language understanding and generation, reasoning, powering chatbots, and creative writing.  
+These gargantuan models, ranging in size from tens to hundreds of gigabytes, and in cases like GPT-4, even reaching terabyte scale. It's just not possible to train these models using the traditional techniques used in pytorch. Much advanced multi-GPU training techniques are necessary
+ 
+In this article, we delve into the critical differences between traditional deep learning training techniques and the more advanced multi-GPU settings required for these large language models.
+Our focus will be on system-level optimizations that enable efficient training of these colossal models. We will specifically explore an implementation of DeepSpeed, a breakthrough in this field, applying it step-by-step. For each component, we'll implement what we learn and conduct a comparative analysis in terms of training time, network overhead, and the maximum achievable model size. 
+This exploration is driven by the gap I observed in available resources. There are plenty of resources to learn ML libraries like PyTorch and plenty of resources about how to optimize and use LLMs for inference and their APIs. There seems to be a lack of clear, accessible references that break down the concepts related to training these large models. Through this article, I aim to bridge this knowledge gap, providing a comprehensive guide along with implementations to demystifies the process of training large-scale models.
+
+Enter Deepspeed
+
+DeepSpeed, developed by Microsoft, is an open-source deep learning optimization library that specifically addresses the challenges of training large-scale models efficiently. It offers a suite of features that enable researchers and ML practitioners to train models with billions, or even trillions, of parameters. DeepSpeed achieves this through innovative techniques such as Zero redundandacy optimizer, model parallelism, pipeline parallelism, and data parallelism, alongside memory and bandwidth optimizations. It seemlessly integrates with PyTorch. In this article we will use Deepspeed and pytorch.
+
+
+
+
