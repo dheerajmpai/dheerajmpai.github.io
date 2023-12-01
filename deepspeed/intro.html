@@ -1,3 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="CoACH: Conversational Agent for curating Human language Learning        ">
+  <meta name="keywords" content="CoACH: Conversational Agent for curating Human language Learning  ">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CoACH: An interactive Conversational Agent for curating Human language Learning </title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://dheerajmpai.github.io">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://hypernerf.github.io">
+              HyperNeRF
+            </a>
+            <a class="navbar-item" href="https://nerfies.github.io">
+              Nerfies
+            </a>
+            <a class="navbar-item" href="https://latentfusion.github.io">
+              LatentFusion
+            </a>
+            <a class="navbar-item" href="https://photoshape.github.io">
+              PhotoShape
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">CoACH: An interactive Conversational Agent for curating Human
+              language Learning </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://dheerajmpai.github.io">Dheeraj Mohandas Pai</a><sup>1,*</sup>,</span>
+              <span class="author-block">
+               Bradley Whitehall<sup>1,*</sup>,</span>
+              <span class="author-block">
+                <a href="https://deigant1998.github.io/">Deigant Yadava</a><sup>1,*</sup>,
+              </span>
+              <span class="author-block">
+                Vinay Nair<sup>1,*</sup>,
+              </span>
+
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Carnegie Mellon University,</span>
+              <span class="author-block"><sup>*</sup>Equal Contribution</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://dheerajmpai.github.io/2023.11785.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://youtu.be/ym1XnJ2X-a0" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/dheerajmpai/coach" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./static/coachmain.gif" />
+        <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video> -->
+        <h2 class="subtitle has-text-centered">
+          <span class="dnerf">CoACH</span> is a novel conversational agent that leverages reinforcement learning and
+          knowledge tracing to personalize and enhance language learning experiences.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+
+            <p>
 Large language models have taken the world by storm, marking a transformative era in the field of artificial intelligence. 
 Models like GPT-4, LLaMA, and Mistral, with their multi-billion parameter designs, have set new benchmarks in natural language understanding and generation, reasoning, powering chatbots, and creative writing.  
 These gargantuan models, ranging in size from tens to hundreds of gigabytes, and in cases like GPT-4, even reaching terabyte scale. It's just not possible to train these models using the traditional techniques used in pytorch. Much advanced multi-GPU training techniques are necessary
@@ -10,6 +190,140 @@ Enter Deepspeed
 
 DeepSpeed, developed by Microsoft, is an open-source deep learning optimization library that specifically addresses the challenges of training large-scale models efficiently. It offers a suite of features that enable researchers and ML practitioners to train models with billions, or even trillions, of parameters. DeepSpeed achieves this through innovative techniques such as Zero redundandacy optimizer, model parallelism, pipeline parallelism, and data parallelism, alongside memory and bandwidth optimizations. It seemlessly integrates with PyTorch. In this article we will use Deepspeed and pytorch.
 
+
+             
+            </p>
+            <p>
+              Our method involves a knowledge tracing model combined with a reinforcement learning agent to select the
+              best possible next exercise for the user. The tested model significantly outperforms a random policy,
+              which was selected as our baseline comparison. These successfully results demonstrate the capabilities of
+              reinforcement learning as a viable technique for online learning modules. We have made all code and
+              pre-trained models from this research public to encourage further research and development in this domain.
+
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ym1XnJ2X-a0?si=of2kM0XIXFwRti9c"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+  <section class="section">
+
+    <div class="container is-max-desktop">
+
+
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Introduction</h2>
+
+          <div class="content has-text-justified">
+            <p>
+              One of the best ways to learn any subject or topic is to be incrementally exposed to different concepts of
+              the subject over time. This iterative learning needs to be done in such a way that the concept introduced
+              at every step is of a slightly higher complexity as compared to the concepts that the learner already
+              knows. This means that the learning process can be enhanced for a learner if the concepts that are
+              introduced in each step are scheduled according to the current knowledge state of the learner. The same is
+              true if a learner is trying to learn a new language. One of the most effective ways to learn a new
+              language is through immersion, but not everyone has access to language immersion programs. We plan to
+              tackle this by developing an intelligent agent that can carry out personalized conversations with the
+              learner.
+            </p>
+
+            <p>This project would have two major components:</p>
+            <h5>Knowledge tracing:</h5>
+
+            <p>At every step, in order to personalize the conversations, the agent will keep track of the word-level
+              mistakes that the learner makes and use this data to generate a representation of the knowledge state of
+              the user (conversely, using the representation of the knowledge state we can predict the probability of a
+              user making a mistake on a particular word in a sentence). This knowledge representation is used by the
+              agent to generate relevant conversation.</p>
+
+            <h5>Conversation Agent:</h5>
+
+            <p>The conversational agent is responsible for generating new conversations with the learner based on the
+              current knowledge state of the user. We explore the applications of Sequence to Sequence models to
+              generate the next dialogue for the conversation (where the previous reply from the user and the knowledge
+              state of the user can be fed as the input to the model). We train the agent using Reinforcement learning
+              algorithms (Q-learning) to find the best action to select a conversation that can help in improving the
+              knowledge of the user. The reward for the reinforcement learning algorithm is based on the improvement in
+              the knowledge state of the user after having a conversation with the agent.</p>
+            <p>Our contributions are summarized as follows:</p>
+            <ul>
+              <li>
+                <!-- <span class="ltx_tag ltx_tag_item">•</span>  -->
+                <p>We propose a novel architecture based on Reinforcement learning and Deep knowledge tracing that can
+                  help humans in language learning.</p>
+              </li>
+              <li>
+                <p>We explore novel previously unexplored architectures, especially based on attention, for Deep
+                  knowledge tracing in the task of second language acquisition. In particular, we focus on architectures
+                  that can be easily integrated with our RL agent.</p>
+              </li>
+              <li>
+                <p>We train and evaluate a Q-learning based RL agent to intelligently schedule conversations that
+                  outperforms the baseline in terms of both cumulative reward and sample efficiency.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
 
 
 
